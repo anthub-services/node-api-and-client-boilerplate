@@ -1,0 +1,27 @@
+{
+  "name": "node-express-api-boilerplate",
+  "version": "0.0.0",
+  "description": "Node Express API Boilerplate",
+  "author": "Ricky Hurtado",
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:rickyhurtado/node-client-and-api-boilerplate.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rickyhurtado/node-client-and-api-boilerplate/issues"
+  },
+  "homepage": "https://github.com/rickyhurtado/node-client-and-api-boilerplate/tree/master/api",
+  "dependencies": {
+    "body-parser": "~1.0.1",
+    "express": "~4.0.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "nodemon": "^1.12.1"
+  },
+  "scripts": {
+    "start": "nodemon --exec babel-node src/server.js"
+  }
+}
