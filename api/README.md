@@ -1,20 +1,15 @@
-# React App
-Required node version is `9.2.1`. The client app is bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+# Express API Boilerplate
+Required node version is `9.2.1`. The API app is developed with [Express](https://expressjs.com/).
 
 ## Running the App
 
 ### Starting the app in local:
 
-**React App**
-
-Open a terminal console and change directory from `root` to `client`. Copy `.env.dist` to `.env` and change the values of the environment variables if needed.
+Open a terminal console and change directory from `root` to `api`. Copy `.env.dist` to `.env` and change the values of the environment variables if needed.
 
 ```
-REACT_APP_API_BASE_URL=http://localhost:7770
-REACT_APP_API_SIGN_IN_URL=http://localhost:7770/sign-in
-REACT_APP_API_SIGN_OUT_URL=http://localhost:7770/sign-out
-REACT_APP_API_VERIFY_TOKEN_URL=http://localhost:7770/verify-token
-REACT_APP_API_JWT_SECRET=jwtsecretcode
+PORT=7770
+ALLOW_ORIGIN=http://localhost:7771
 ```
 
 Then run the following scripts in the terminal:
@@ -24,7 +19,7 @@ yarn
 yarn start
 ```
 
-Access the API app at <http://localhost:7771>.
+Access the client app at <http://localhost:7770>.
 
 ### Starting the App in Docker:
 
