@@ -13,11 +13,15 @@
   },
   "homepage": "https://github.com/rickyhurtado/node-client-and-api-boilerplate/tree/master/client",
   "dependencies": {
+    "node-sass-chokidar": "^0.0.3",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-helmet": "^5.2.0",
     "react-scripts": "1.1.0"
   },
   "scripts": {
+    "build-css": "node-sass-chokidar src/ -o src/",
+    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
     "start": "PORT=7771 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",

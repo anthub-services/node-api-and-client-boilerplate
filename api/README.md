@@ -33,7 +33,7 @@ docker-compose up
 
 Note that the `docker-compose build` script is executed only once if the Docker image has not been created yet.
 
-To shutdown the applications, press `CTRL+C` and run the following script in the terminal:
+To shutdown the app, press `CTRL+C` and run the following script in the terminal:
 
 ```
 docker-compose down

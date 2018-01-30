@@ -24,6 +24,22 @@ yarn
 yarn start
 ```
 
+To generate the `./client/src/Assets/Styles/Style.css`, open another terminal window and change `root` directory to `client` then run the following script:
+
+```
+yarn run watch-css
+```
+
+The script above works only in Mac with the `fsevents` module installed. Run the script below as an alternative:
+
+```
+yarn run build-css
+```
+
+Note: You must run the script above manually everytime you made changes to `.scss` files.  All the `*.scss` files shall be compiled to `*.css` but only the `Style.css` is included in the repository.
+
+Take note that all the `*.scss` files shall be compiled to `*.css` but only the `Style.css` is included in the repository.
+
 Access the API app at <http://localhost:7771>.
 
 ### Starting the App in Docker:
@@ -37,8 +53,10 @@ docker-compose up
 
 Note that the `docker-compose build` script is executed only once if the Docker image has not been created yet.
 
-To shutdown the applications, press `CTRL+C` and run the following script in the terminal:
+To shutdown the app, press `CTRL+C` and run the following script in the terminal:
 
 ```
 docker-compose down
 ```
+
+The `yarn run watch-css` script should be running on a separate terminal window for client app.

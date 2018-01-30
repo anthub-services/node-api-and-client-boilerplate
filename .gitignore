@@ -9,6 +9,8 @@
 # production
 */build
 */coverage
+client/src/Assets/Styles/**/*.css
+!client/src/Assets/Styles/Style.css
 
 # misc
 .DS_Store
