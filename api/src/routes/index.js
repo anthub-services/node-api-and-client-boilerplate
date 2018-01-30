@@ -5,6 +5,11 @@ export default (app) => {
     message: 'Welcome to Node Express API Boilerplate!'
   }));
 
+  /* Sessions */
+  app.post('/sign-in', C.Sessions.authenticate);
+  app.post('/sign-out', C.Sessions.clearSession);
+  app.get('/verify-token', C.Sessions.verifyToken);
+
   /* Tests */
   app.get('/tests', C.Tests.list);
   app.get('/tests/custom-method', C.Tests.customMethod); // Should be placed before other requests with dynamic values

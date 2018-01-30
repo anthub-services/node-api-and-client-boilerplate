@@ -10,6 +10,7 @@ Open a terminal console and change directory from `root` to `api`. Copy `.env.di
 ```
 PORT=7770
 ALLOW_ORIGIN=http://localhost:7771
+JWT_SECRET=jwtsecretcode
 ```
 
 Then run the following scripts in the terminal:
