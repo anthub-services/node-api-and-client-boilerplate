@@ -1,6 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import routes from './routes';
+import cors from 'cors';
 
 if (!process.env.PORT) {
   require('dotenv').config();
@@ -23,13 +24,12 @@ app.listen(port, () => {
   console.log('[api][listen] http://localhost:' + port);
 });
 
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', allowOrigin);
-  res.header('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Authorization');
-  res.header('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, POST, DELETE, OPTIONS');
-  res.header('Access-Control-Allow-Credentials', 'true');
-  next();
-})
+app.use(cors({
+  origin: process.env.ALLOW_ORIGIN,
+  credentials: true,
+  allowedHeaders: 'X-Requested-With, Content-Type, Authorization',
+  methods: 'GET, POST, PATCH, PUT, POST, DELETE, OPTIONS'
+}));
 
 app.use(bodyParser.json());
 
