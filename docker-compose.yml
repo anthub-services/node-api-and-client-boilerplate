@@ -1,0 +1,26 @@
+version: '2.1'
+services:
+  express_api_boilerplate:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    image: express_api_boilerplate
+    working_dir: /home/node/app/api
+    volumes:
+      - ./:/home/node/app
+    ports:
+      - '7770:7770'
+    env_file:
+      - ./api/.env
+  react_client_boilerplate:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    image: react_client_boilerplate
+    working_dir: /home/node/app/client
+    volumes:
+      - ./:/home/node/app
+    ports:
+      - '7771:7771'
+    env_file:
+      - ./client/.env

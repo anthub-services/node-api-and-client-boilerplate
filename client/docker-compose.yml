@@ -1,0 +1,12 @@
+version: '2.1'
+services:
+  react_client_boilerplate:
+    build: .
+    image: 'react_client_boilerplate'
+    working_dir: /home/node/app
+    volumes:
+      - ./:/home/node/app
+    ports:
+      - '7771:7771'
+    env_file:
+      - .env
