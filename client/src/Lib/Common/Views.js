@@ -2,7 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 
 export const PageTitle = ({ ...props }) => {
-  const siteName = 'React App Boilerplate';
+  const siteName = process.env.REACT_APP_SITE_NAME;
   let { title, customTitle } = props;
   let headTitle = customTitle ? title : `${title} | ${siteName}`;
 
