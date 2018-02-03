@@ -1,3 +1,13 @@
+// App
 @import './App.scss';
 
+// Themes
+@import './Themes/Bootstrap.scss';
+
+// Layouts
+@import './Layouts/ViewportHack.scss';
+@import './Layouts/Admin.scss';
+@import './Layouts/Basic.scss';
+
+// Views
 @import './Views/Site/Home.scss';

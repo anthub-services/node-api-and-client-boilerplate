@@ -1,0 +1,25 @@
+.layout {
+  > header.header {
+    .navbar-brand {
+      &:focus {
+        color: #9d9d9d;
+        &:hover {
+          color: #fff;
+          text-decoration: none;
+        }
+      }
+    }
+    .navbar {
+      border-radius: 0;
+      a {
+        transition: all 0.3s;
+      }
+    }
+  }
+  > main.container {
+    padding: 0 15px 100px;
+  }
+  footer.footer {
+    z-index: 9999999;
+  }
+}

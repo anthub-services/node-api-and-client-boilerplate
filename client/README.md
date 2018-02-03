@@ -10,6 +10,7 @@ Required node version is `9.2.1`. The client app is bootstrapped with [Create Re
 Open a terminal console and change directory from `root` to `client`. Copy `.env.dist` to `.env` and change the values of the environment variables if needed.
 
 ```
+REACT_APP_SITE_NAME=React App Boilerplate
 REACT_APP_API_BASE_URL=http://localhost:7770
 REACT_APP_API_SIGN_IN_URL=http://localhost:7770/sign-in
 REACT_APP_API_SIGN_OUT_URL=http://localhost:7770/sign-out
