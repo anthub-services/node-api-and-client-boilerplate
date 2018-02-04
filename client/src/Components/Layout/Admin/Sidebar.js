@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
-import { Link, withRouter } from 'react-router-dom';
-import { NavLink } from '../../../Lib/Common/Views';
+import { withRouter } from 'react-router-dom';
+import { AuthNavLink } from '../../../Lib/Common/Views';
+import Button from '../../Button';
 
 class Sidebar extends Component {
   render() {
     return (
       <nav className="sidebar">
         <ul className="nav nav-sidebar">
-          <NavLink title="Dashboard" to="/admin/dashboard" path={this.props.match.path} />
-          <NavLink title="Settings" to="/admin/settings" path={this.props.match.path} />
-          <li>
-            <Link to="/sign-in">Sign Out</Link>
-          </li>
+          <AuthNavLink title="Dashboard" to="/admin/dashboard" path={this.props.match.path} />
+          <AuthNavLink title="Settings" to="/admin/settings" path={this.props.match.path} />
+          <Button.SignOut />
         </ul>
       </nav>
     );

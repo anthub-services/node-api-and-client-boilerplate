@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+import * as Session from '../Helpers/Session';
 
 export const PageTitle = ({ ...props }) => {
   let siteName = process.env.REACT_APP_SITE_NAME;
@@ -26,11 +27,27 @@ export const PageTitle = ({ ...props }) => {
 };
 
 export const NavLink = ({ ...props }) => {
-  const isActive = props.path === props.to ? 'active' : '';
+  const showNavLink = props.isSignedOut ? Session.isSignedOut() : true;
 
-  return (
-    <li className={isActive}>
+  return showNavLink ? (
+    <li className={navLinkIsActive({ ...props })}>
+      <Link to={props.to} onClick={closeNavbar}>{props.title}</Link>
+    </li>
+  ) : null
+};
+
+export const AuthNavLink = ({ ...props }) => {
+  return Session.isAuthorised(props.to) ? (
+    <li className={navLinkIsActive({ ...props })}>
       <Link to={props.to}>{props.title}</Link>
     </li>
-  );
+  ) : null;
 };
+
+function navLinkIsActive({ ...props }) {
+  return props.path === props.to ? 'active' : '';
+}
+
+function closeNavbar() {
+  document.getElementById('js-navbar-toggle-btn').click();
+}

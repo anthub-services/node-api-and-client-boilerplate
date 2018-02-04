@@ -1,0 +1,38 @@
+.sign-out-btn {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  display: block;
+  text-align: left;
+  transition: all 0.3s;
+  width: 100%;
+  &:focus {
+    outline: none;
+  }
+}
+.navbar-nav {
+  .sign-out-btn {
+    color: #9d9d9d;
+    padding: 10px 15px;
+    &:hover {
+      color: #fff;
+    }
+    @media (min-width: 768px) {
+      padding-top: 15px;
+      padding-bottom: 15px;
+    }
+  }
+}
+.layout-admin {
+  .sidebar {
+    .sign-out-btn {
+      color: #337ab7;
+      display: block;
+      line-height: 1;
+      padding: 10px 20px;
+      &:hover {
+        background-color: #eee;
+      }
+    }
+  }
+}

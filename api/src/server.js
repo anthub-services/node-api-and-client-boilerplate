@@ -5,13 +5,13 @@ import cors from 'cors';
 
 if (!process.env.PORT) {
   require('dotenv').config();
-  console.log('[api][node] Loading ENV vars from .env file with dotenv module');
 }
 
 if (!process.env.PORT) {
   console.log('[api][port] 7770 set as default');
   console.log('[api][header] Access-Control-Allow-Origin: * set as default');
 } else {
+  console.log('[api][node] Loaded ENV vars from .env file');
   console.log(`[api][port] ${process.env.PORT}`);
   console.log(`[api][header] Access-Control-Allow-Origin: ${process.env.ALLOW_ORIGIN}`);
 }

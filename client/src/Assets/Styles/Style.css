@@ -535,6 +535,46 @@ a {
     a:focus:hover {
       text-decoration: underline; }
 
+.sign-out-btn {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  display: block;
+  text-align: left;
+  transition: all 0.3s;
+  width: 100%; }
+  .sign-out-btn:focus {
+    outline: none; }
+
+.navbar-nav .sign-out-btn {
+  color: #9d9d9d;
+  padding: 10px 15px; }
+  .navbar-nav .sign-out-btn:hover {
+    color: #fff; }
+  @media (min-width: 768px) {
+    .navbar-nav .sign-out-btn {
+      padding-top: 15px;
+      padding-bottom: 15px; } }
+
+.layout-admin .sidebar .sign-out-btn {
+  color: #337ab7;
+  display: block;
+  line-height: 1;
+  padding: 10px 20px; }
+  .layout-admin .sidebar .sign-out-btn:hover {
+    background-color: #eee; }
+
+.alert {
+  background-image: none; }
+  .alert.alert-dismissable {
+    padding-right: 15px; }
+    .alert.alert-dismissable button.close {
+      right: -11px;
+      top: -17px; }
+
+.form .error-detail {
+  padding-left: 26px; }
+
 .home-page {
   text-align: center; }
   .home-page-logo {
@@ -551,3 +591,9 @@ a {
     transform: rotate(0deg); }
   to {
     transform: rotate(360deg); } }
+
+.sign-in-page .form-wrapper {
+  width: 400px; }
+  @media (max-width: 430px) {
+    .sign-in-page .form-wrapper {
+      width: 100%; } }

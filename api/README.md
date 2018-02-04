@@ -38,3 +38,14 @@ To shutdown the app, press `CTRL+C` and run the following script in the terminal
 ```
 docker-compose down
 ```
+
+## Users
+
+Use the following credentials to test different API responses. Default password for all accounts is `password`. Open [./api_client/src/controllers/Session.js](https://github.com/rickyhurtado/node-client-and-api-boilerplate/blob/master/api/src/controllers/Sessions.js) for reference.
+
+- **Admin User:** `admin@email.com` - can access all applications
+- **Admin User witout Settings page:** `admin_no_settings@email.com` - no access on admin Settings page
+- **User redirected to internal page:** `referrer@email.com` – when `redirect.url` is set without the domain, user shall be redirected to internal page if no location path (referrer) found on the Sign In page
+- **User redirected to external page:** `redirect@email.com` – when `redirect.external` and `redirect.url` are set, user shall be redirected to external page if no location path (referrer) found on the Sign In page
+- **Blocked User:** `blocked@email.com` – user is signed in but the account is blocked
+- **Unauthorized User:** simply enter wrong `email` and/or `password`

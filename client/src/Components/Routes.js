@@ -10,6 +10,7 @@ export default class Routes extends Component {
       <BrowserRouter onUpdate={() => window.scrollTo(0, 0)}>
         <Switch>
           <SiteRoute exact path='/' component={Site.Home} />
+          <SiteRoute exact path='/about' component={Site.About} />
           <SiteRoute exact path='/sign-in' component={Site.SignIn} />
 
           <AdminRoute exact path='/admin' component={() => <Redirect to='/admin/dashboard' />} />

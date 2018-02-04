@@ -9,5 +9,11 @@
 @import './Layouts/Admin.scss';
 @import './Layouts/Basic.scss';
 
+// Components
+@import './Components/Buttons/SignOut.scss';
+@import './Components/Alert.scss';
+@import './Components/Form.scss';
+
 // Views
 @import './Views/Site/Home.scss';
+@import './Views/Site/SignIn.scss';
