@@ -3,11 +3,20 @@ Required node version is `9.2.1`. The [API](https://github.com/rickyhurtado/node
 
 ## Running the Apps
 
+### Cloning the project:
+
+Open a terminal console and run the following scripts:
+
+```
+git clone git@github.com:rickyhurtado/node-client-and-api-boilerplate.git
+cd node-client-and-api-boilerplate
+```
+
 ### Starting the apps in local:
 
 **Express API**
 
-Open a terminal console and change directory from `root` to `api`. Copy `.env.dist` to `.env` and change the values of the environment variables if needed.
+Open a terminal console and change the project directory from `root` to `api`. Copy `.env.dist` to `.env` and change the values of the environment variables if needed.
 
 ```
 PORT=7770
@@ -26,7 +35,7 @@ Access the client app at <http://localhost:7770>.
 
 **React App**
 
-Open a terminal console and change directory from `root` to `client`. Copy `.env.dist` to `.env` and change the values of the environment variables if needed.
+Open a terminal console and change the project directory from `root` to `client`. Copy `.env.dist` to `.env` and change the values of the environment variables if needed.
 
 ```
 REACT_APP_API_BASE_URL=http://localhost:7770
@@ -43,7 +52,7 @@ yarn
 yarn start
 ```
 
-To generate the `./client/src/Assets/Styles/Style.css`, open another terminal window and change `root` directory to `client` then run the following script:
+To generate the `./client/src/Assets/Styles/Style.css`, open another terminal window and change the project directory from `root` to `client` then run the following script:
 
 ```
 yarn run watch-css
@@ -68,7 +77,7 @@ docker-compose build
 docker-compose up
 ```
 
-Note that the `docker-compose build` script is executed only once if the Docker image has not been created yet.
+Note: The `docker-compose build` script is executed only once if the Docker image has not been created yet.
 
 To shutdown the apps, press `CTRL+C` and run the following script in the terminal:
 
@@ -77,6 +86,43 @@ docker-compose down
 ```
 
 The `yarn run watch-css` script should be running on a separate terminal window for client app.
+
+## Bash Commands
+
+From the `root` directory of the project, run the following script to start both the API and client apps in Docker:
+
+```
+./bin/start
+```
+
+And to stop both the API and client apps:
+
+```
+./bin/stop
+```
+
+Note: The script above should be done on a separate terminal window to shutdown Docker apps properly.
+
+To start specific app in Docker, run the following scripts:
+
+```
+cd api
+./bin/start
+```
+
+Then run `./bin/stop` to stop the app. For client, simply `cd client` and run the respective scripts.
+
+Open another terminal window then change the project directory from `root` to `client`. Then enter the following script to run the CSS watcher:
+
+```
+./bin/css/watch
+```
+
+Or manually build the CSS:
+
+```
+./bin/css/build
+```
 
 ## Users
 

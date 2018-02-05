@@ -1,12 +1,12 @@
 version: '2.1'
 services:
-  express_api_boilerplate:
+  express_api:
     build: .
-    image: 'express_api_boilerplate'
+    image: express_api
     working_dir: /home/node/app
     volumes:
       - ./:/home/node/app
     ports:
-      - '7770:7770'
+      - 7770:7770
     env_file:
       - .env

@@ -7,7 +7,7 @@ Required node version is `9.2.1`. The client app is bootstrapped with [Create Re
 
 **React App**
 
-Open a terminal console and change directory from `root` to `client`. Copy `.env.dist` to `.env` and change the values of the environment variables if needed.
+Open a terminal console and change the project directory from `root` to `client`. Copy `.env.dist` to `.env` and change the values of the environment variables if needed.
 
 ```
 REACT_APP_SITE_NAME=React App Boilerplate
@@ -25,7 +25,7 @@ yarn
 yarn start
 ```
 
-To generate the `./client/src/Assets/Styles/Style.css`, open another terminal window and change `root` directory to `client` then run the following script:
+To generate the `./client/src/Assets/Styles/Style.css`, open another terminal window and change the project directory from `root` to `client` then run the following script:
 
 ```
 yarn run watch-css
@@ -38,8 +38,6 @@ yarn run build-css
 ```
 
 Note: You must run the script above manually everytime you made changes to `.scss` files.  All the `*.scss` files shall be compiled to `*.css` but only the `Style.css` is included in the repository.
-
-Take note that all the `*.scss` files shall be compiled to `*.css` but only the `Style.css` is included in the repository.
 
 Access the API app at <http://localhost:7771>.
 
@@ -60,7 +58,33 @@ To shutdown the app, press `CTRL+C` and run the following script in the terminal
 docker-compose down
 ```
 
-The `yarn run watch-css` script should be running on a separate terminal window for client app.
+The `yarn run watch-css` script should be running on a separate terminal window.
+
+## Bash Commands
+
+Change the project directory from `root` to `client` then run the following script to start API app in Docker:
+
+```
+./bin/start
+```
+
+And to stop the API app:
+
+```
+./bin/stop
+```
+
+Open another terminal window then change the project directory from `root` to `client`. Then enter the following script to run the CSS watcher:
+
+```
+./bin/css/watch
+```
+
+Or manually build the CSS:
+
+```
+./bin/css/build
+```
 
 ## Users
 

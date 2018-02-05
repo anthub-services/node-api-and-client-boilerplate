@@ -5,7 +5,7 @@ Required node version is `9.2.1`. The API app is developed with [Express](https:
 
 ### Starting the app in local:
 
-Open a terminal console and change directory from `root` to `api`. Copy `.env.dist` to `.env` and change the values of the environment variables if needed.
+Open a terminal console and change the project directory from `root` to `api`. Copy `.env.dist` to `.env` and change the values of the environment variables if needed.
 
 ```
 PORT=7770
@@ -31,13 +31,29 @@ docker-compose build
 docker-compose up
 ```
 
-Note that the `docker-compose build` script is executed only once if the Docker image has not been created yet.
+Note: The `docker-compose build` script is executed only once if the Docker image has not been created yet.
 
 To shutdown the app, press `CTRL+C` and run the following script in the terminal:
 
 ```
 docker-compose down
 ```
+
+## Bash Commands
+
+Change the project directory from `root` to `api` then run the following script to start API app in Docker:
+
+```
+./bin/start
+```
+
+And to stop the API app:
+
+```
+./bin/stop
+```
+
+Note: The script above should be done on a separate terminal window to shutdown Docker apps properly.
 
 ## Users
 

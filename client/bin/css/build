@@ -1,0 +1,4 @@
+#!/bin/bash
+source $PWD/../bin/bash.sh
+
+exec yarn run build-css
