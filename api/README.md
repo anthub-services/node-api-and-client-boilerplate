@@ -1,5 +1,5 @@
 # Express API Boilerplate
-Required node version is `9.2.1`. The API app is developed with [Express](https://expressjs.com/).
+Required node version is `9.2.1`. The API app is powered by [Express](https://expressjs.com/) and [PostgreSQL](https://www.postgresql.org/) database.
 
 ## Running the App
 
@@ -11,7 +11,13 @@ Open a terminal console and change the project directory from `root` to `api`. C
 PORT=7770
 ALLOW_ORIGIN=http://localhost:7771
 JWT_SECRET=jwtsecretcode
+POSTGRES_PORT=5432
+POSTGRES_DB=express_api_dev
+POSTGRES_USER=express_api_user
+POSTGRES_PASSWORD=root
 ```
+
+Note: Only change the environment variables for `POSTGRES_USER` and `POSTGRES_PASSWORD` if working on local machine.
 
 Then run the following scripts in the terminal:
 
@@ -41,19 +47,38 @@ docker-compose down
 
 ## Bash Commands
 
-Change the project directory from `root` to `api` then run the following script to start API app in Docker:
+Change the project directory from `root` to `api` then run the following commands:
 
-```
-./bin/start
-```
+### Docker
 
-And to stop the API app:
+| Command                                | Description                                  |
+|----------------------------------------|----------------------------------------------|
+| `./bin/start`                          | Build and run the api and database services  |
+| `./bin/stop`                           | Stop all the services                        |
+| `./bin/console <container ID or Name>` | Access the terminal console of API container |
 
-```
-./bin/stop
-```
+Note: To view the Docker containers, open another terminal then enter `docker ps`. To manage separate Docker instance for API, open another terminal window and change the project directory from `root` to `api` and run the commands above.
 
-Note: The script above should be done on a separate terminal window to shutdown Docker apps properly.
+### Database
+
+**Local:**
+
+| Command                               | Description                                                |
+|---------------------------------------|------------------------------------------------------------|
+| `./bin/pg/local/start`                | Start the PostgreSQL server (for Mac users only)           |
+| `./bin/pg/local/initdb`               | Initialise database with schema migration and data seeding |
+| `./bin/pg/local/resetdb`              | Drop and re-initialise database                            |
+| `./bin/pg/local/dropdb`               | Drop database                                              |
+| `./bin/pg/local/migrate`              | Run new schema migration                                   |
+| `./bin/pg/local/seed <seed file>`     | Run specific data seed file with or without .js extension  |
+| `./bin/pg/local/seedundo <seed file>` | Revert the seed of specific data seed file                 |
+| `./bin/pg/local/psql`                 | Access the database console                                |
+
+**Docker**
+
+- To run the commands for Docker database service, simply remove the `local` from the command
+- The `start` command works only in local machine
+- Used `./bin/pg/psql <database container ID or Name>` to access the database console
 
 ## Users
 

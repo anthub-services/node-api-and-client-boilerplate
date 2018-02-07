@@ -5,11 +5,16 @@ services:
       context: ./api
       dockerfile: Dockerfile
     image: express_api
+    user: node
     working_dir: /home/node/app/api
     volumes:
       - ./:/home/node/app
     ports:
       - 7770:7770
+    environment:
+      - POSTGRES_HOST=database
+    depends_on:
+      - database
     env_file:
       - ./api/.env
   react_client:
@@ -24,3 +29,13 @@ services:
       - 7771:7771
     env_file:
       - ./client/.env
+  database:
+    image: postgres:9.6
+    volumes:
+      - database:/var/lib/postgresql/data
+    ports:
+      - 7772:5432
+    env_file:
+      - ./api/.env
+volumes:
+  database:

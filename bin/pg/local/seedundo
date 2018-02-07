@@ -1,0 +1,6 @@
+#!/bin/bash
+source $PWD/bin/bash.sh
+command=$(argsToCommand "$@")
+
+execute cd api
+execute sequelize db:seed:undo --seed $command

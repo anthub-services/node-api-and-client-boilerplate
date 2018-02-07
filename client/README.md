@@ -1,5 +1,5 @@
 # React App
-Required node version is `9.2.1`. The client app is bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+Required node version is `9.2.1`. The client app is bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app) and [Bootstrap 3.3](http://getbootstrap.com/docs/3.3/) framework and theme.
 
 ## Running the App
 
@@ -60,31 +60,30 @@ docker-compose down
 
 The `yarn run watch-css` script should be running on a separate terminal window.
 
+### Docker
+
+See **Bash Commands** below.
+
 ## Bash Commands
 
-Change the project directory from `root` to `client` then run the following script to start API app in Docker:
+Change the project directory from `root` to `client` then run the following commands:
 
-```
-./bin/start
-```
+### Docker
 
-And to stop the API app:
+| Command                                | Description                                     |
+|----------------------------------------|-------------------------------------------------|
+| `./bin/start`                          | Build and run the client service                |
+| `./bin/stop`                           | Stop the client service                         |
+| `./bin/console <container ID or Name>` | Access the terminal console of client container |
 
-```
-./bin/stop
-```
+Note: To view the Docker containers, open another terminal enter `docker ps`. To manage separate Docker instance for client, open another terminal window and change the project directory from `root` to `client` and run the commands above.
 
-Open another terminal window then change the project directory from `root` to `client`. Then enter the following script to run the CSS watcher:
+### CSS
 
-```
-./bin/css/watch
-```
-
-Or manually build the CSS:
-
-```
-./bin/css/build
-```
+| Command           | Description                                                         |
+|-------------------|---------------------------------------------------------------------|
+| `./bin/css/watch` | Watch and compile *.scss files on file changes (for Mac users only) |
+| `./bin/css/build` | Manually compile *.scss files                                       |
 
 ## Users
 

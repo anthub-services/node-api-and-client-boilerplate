@@ -1,5 +1,5 @@
 # Node Client and API Boilerplate
-Required node version is `9.2.1`. The [API](https://github.com/rickyhurtado/node-client-and-api-boilerplate/tree/master/api) app is developed with [Express](https://expressjs.com/) and the [client](https://github.com/rickyhurtado/node-client-and-api-boilerplate/tree/master/client) app is bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+Required node version is `9.2.1`. The [API](https://github.com/rickyhurtado/node-client-and-api-boilerplate/tree/master/api) app is powered by [Express](https://expressjs.com/) and [PostgreSQL](https://www.postgresql.org/) database and the [client](https://github.com/rickyhurtado/node-client-and-api-boilerplate/tree/master/client) app is bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app) and [Bootstrap 3.3](http://getbootstrap.com/docs/3.3/) framework and theme.
 
 ## Running the Apps
 
@@ -22,7 +22,13 @@ Open a terminal console and change the project directory from `root` to `api`. C
 PORT=7770
 ALLOW_ORIGIN=http://localhost:7771
 JWT_SECRET=jwtsecretcode
+POSTGRES_PORT=5432
+POSTGRES_DB=express_api_dev
+POSTGRES_USER=express_api_user
+POSTGRES_PASSWORD=root
 ```
+
+Note: Only change the environment variables for `POSTGRES_USER` and `POSTGRES_PASSWORD` if working on local machine.
 
 Then run the following scripts in the terminal:
 
@@ -87,42 +93,85 @@ docker-compose down
 
 The `yarn run watch-css` script should be running on a separate terminal window for client app.
 
+## Database using PostgreSQL and Sequelize
+
+### Local
+
+**Installing PostgreSQL**
+
+**Mac:** [Getting Started with PostgreSQL on Mac OSX](https://www.codementor.io/engineerapart/getting-started-with-postgresql-on-mac-osx-are8jcopb)
+<br>
+**Windows:** [Installing PostgreSQL, Creating a User, and Creating a Database](https://confluence.atlassian.com/display/CONF30/Database+Setup+for+PostgreSQL+on+Windows)
+
+NOTE: For Mac users, you can run the PostgreSQL server on a separate terminal console by running the following script:
+
+```
+postgres -D /usr/local/var/postgres
+```
+
+**Database Create and Drop Commands**
+
+Open a terminal console and change the project directory from `root` to `api` and run the following script:
+
+```
+sequelize db:create
+```
+
+To drop database, run the following script:
+
+```
+sequelize db:drop
+```
+
+### Docker
+
+See **Bash Commands** below.
+
 ## Bash Commands
 
-From the `root` directory of the project, run the following script to start both the API and client apps in Docker:
+From the `root` directory of the project, run the following commands:
 
-```
-./bin/start
-```
+### Docker
 
-And to stop both the API and client apps:
+| Command                                | Description                                                |
+|----------------------------------------|------------------------------------------------------------|
+| `./bin/start`                          | Build and run all the services (API, client, and database) |
+| `./bin/stop`                           | Stop all the services                                      |
+| `./bin/console <container ID or Name>` | Access the terminal console of API or client container     |
 
-```
-./bin/stop
-```
+Note: To view the Docker containers, open another terminal then enter `docker ps`. To manage separate Docker instance for API or client, open another terminal window and change the project directory from `root` to `api` or `client` and run the commands above.
 
-Note: The script above should be done on a separate terminal window to shutdown Docker apps properly.
+### Database
 
-To start specific app in Docker, run the following scripts:
+**Local:**
 
-```
-cd api
-./bin/start
-```
+| Command                               | Description                                                |
+|---------------------------------------|------------------------------------------------------------|
+| `./bin/pg/local/start`                | Start the PostgreSQL server (for Mac users only)           |
+| `./bin/pg/local/initdb`               | Initialise database with schema migration and data seeding |
+| `./bin/pg/local/resetdb`              | Drop and re-initialise database                            |
+| `./bin/pg/local/dropdb`               | Drop database                                              |
+| `./bin/pg/local/migrate`              | Run new schema migration                                   |
+| `./bin/pg/local/seed <seed file>`     | Run specific data seed file with or without .js extension  |
+| `./bin/pg/local/seedundo <seed file>` | Revert the seed of specific data seed file                 |
+| `./bin/pg/local/psql`                 | Access the database console                                |
 
-Then run `./bin/stop` to stop the app. For client, simply `cd client` and run the respective scripts.
+**Docker**
 
-Open another terminal window then change the project directory from `root` to `client`. Then enter the following script to run the CSS watcher:
+- To run the commands for Docker database service, simply remove the `local` from the command
+- The `start` command works only in local machine
+- Used `./bin/pg/psql <database container ID or Name>` to access the database console
 
-```
-./bin/css/watch
-```
+Note: To run the commands above for separate API Docker instance, simply change the project directory from `root` to `api`. Same applies for local.
 
-Or manually build the CSS:
+### CSS
 
-```
-./bin/css/build
-```
+| Command           | Description                                                         |
+|-------------------|---------------------------------------------------------------------|
+| `./bin/css/watch` | Watch and compile *.scss files on file changes (for Mac users only) |
+| `./bin/css/build` | Manually compile *.scss files                                       |
+
+Note: To run the commands above for separate client Docker instance, simply change the project directory from `root` to `client`. Same applies for local.
 
 ## Users
 

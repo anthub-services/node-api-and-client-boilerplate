@@ -1,0 +1,8 @@
+#!/bin/bash
+source $PWD/bin/bash.sh
+
+execute docker-compose run --rm database /bin/bash -c 'PGPASSWORD=root createdb -U express_api_user -h database express_api_dev'
+
+$PWD/bin/run yarn
+$PWD/bin/run node_modules/.bin/sequelize db:migrate
+$PWD/bin/run node_modules/.bin/sequelize db:seed:all
