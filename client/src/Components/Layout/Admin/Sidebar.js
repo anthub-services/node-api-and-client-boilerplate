@@ -10,7 +10,7 @@ class Sidebar extends Component {
         <ul className="nav nav-sidebar">
           <AuthNavLink title="Dashboard" to="/admin/dashboard" path={this.props.match.path} />
           <AuthNavLink title="Settings" to="/admin/settings" path={this.props.match.path} />
-          <Button.SignOut />
+          <Button.SignOut referrer={this.props.match.path} />
         </ul>
       </nav>
     );

@@ -18,7 +18,7 @@ class Header extends Component {
               <NavLink title="About" to="/about" path={this.props.match.path} />
               <NavLink title="Sign In" to="/sign-in" path={this.props.match.path} isSignedOut />
               <AuthNavLink title="Admin" to="/admin/dashboard" />
-              <Button.SignOut />
+              <Button.SignOut referrer={this.props.match.path} />
             </ul>
           </Navbar.Collapse>
         </Navbar>

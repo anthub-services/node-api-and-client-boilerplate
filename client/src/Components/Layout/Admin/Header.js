@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { Navbar } from 'react-bootstrap';
 import { NavLink } from '../../../Lib/Common/Views';
 import Button from '../../Button';
 import ReactLogo from '../../../Assets/Images/react-logo.svg';
 
-export default class Header extends Component {
+class Header extends Component {
   render() {
     return (
       <header className="header">
@@ -20,7 +20,7 @@ export default class Header extends Component {
           <Navbar.Collapse>
             <ul className="navbar-nav nav navbar-right">
               <NavLink title="Home" to="/" />
-              <Button.SignOut />
+              <Button.SignOut referrer={this.props.match.path} />
             </ul>
           </Navbar.Collapse>
         </Navbar>
@@ -28,3 +28,5 @@ export default class Header extends Component {
     );
   }
 };
+
+export default withRouter(Header);

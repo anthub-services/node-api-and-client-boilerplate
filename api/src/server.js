@@ -1,7 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import routes from './routes';
 import cors from 'cors';
+import routes from './routes';
 
 if (!process.env.PORT) {
   require('dotenv').config();

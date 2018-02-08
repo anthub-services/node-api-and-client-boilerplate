@@ -14,5 +14,13 @@ export default (sequelize, DataTypes) => {
     }
   });
 
+  Permission.associate = (models) => {
+    Permission.belongsToMany(models.User, {
+      as: 'Users',
+      through: 'UserPermission',
+      foreignKey: 'permissionId'
+    });
+  };
+
   return Permission;
 };

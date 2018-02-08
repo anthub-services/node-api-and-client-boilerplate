@@ -10,18 +10,10 @@ export function store(data) {
   };
 }
 
-export function signOut() {
-  Axios
-    .post(process.env.REACT_APP_API_SIGN_OUT_URL)
-    .then(response => {
-      deleteToken();
-    });
-}
-
 export function isSignedIn() {
   token()
-  ?  Axios.defaults.headers.common['Authorization'] = `Bearer ${token()}`
-  :  delete Axios.defaults.headers.common['Authorization'];
+  ? Axios.defaults.headers.common['Authorization'] = `Bearer ${token()}`
+  : delete Axios.defaults.headers.common['Authorization'];
 
   return !!token();
 }
@@ -88,13 +80,17 @@ export function verifyToken() {
     return <Redirect to="/sign-in" />;
   }
 
-  Axios
-    .get(process.env.REACT_APP_API_VERIFY_TOKEN_URL)
-    .catch(error => {
-      console.log('Error: ', error)
-      Store.remove('token');
-      window.location.reload();
-    });
+  const time = Axios.defaults.headers.common.Authorization ? 0 : 2000;
+
+  setTimeout(function() {
+    Axios
+      .get(process.env.REACT_APP_API_VERIFY_TOKEN_URL)
+      .catch(error => {
+        console.log('Error: ', error)
+        Store.remove('token');
+        window.location.reload();
+      });
+  }, time);
 }
 
 export function token() {
@@ -103,7 +99,6 @@ export function token() {
 
 export function deleteToken() {
   Store.remove('token');
-  window.location.reload();
 }
 
 export function decodedToken() {

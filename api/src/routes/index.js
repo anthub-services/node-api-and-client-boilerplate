@@ -1,3 +1,4 @@
+import { authBearer } from '../lib/Sessions';
 import C from '../controllers';
 
 export default (app) => {
@@ -7,8 +8,8 @@ export default (app) => {
 
   /* Sessions */
   app.post('/sign-in', C.Sessions.authenticate);
-  app.post('/sign-out', C.Sessions.clearSession);
-  app.get('/verify-token', C.Sessions.verifyToken);
+  app.post('/sign-out', C.Sessions.signOut);
+  app.get('/verify-token', authBearer(), C.Sessions.verifyToken);
 
   /* Tests */
   app.get('/tests', C.Tests.list);

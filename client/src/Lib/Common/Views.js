@@ -44,10 +44,25 @@ export const AuthNavLink = ({ ...props }) => {
   ) : null;
 };
 
+export function viewportDimension() {
+  const w = window,
+        d = document,
+        e = d.documentElement,
+        g = d.getElementsByTagName('body')[0],
+        width = w.innerWidth || e.clientWidth || g.clientWidth,
+        height = w.innerHeight||e.clientHeight||g.clientHeight;
+
+  return { width, height };
+}
+
 function navLinkIsActive({ ...props }) {
   return props.path === props.to ? 'active' : '';
 }
 
 function closeNavbar() {
-  document.getElementById('js-navbar-toggle-btn').click();
+  const { width } = viewportDimension();
+
+  if (width < 768) {
+    document.getElementById('js-navbar-toggle-btn').click();
+  }
 }
