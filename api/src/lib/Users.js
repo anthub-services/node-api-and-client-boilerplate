@@ -18,6 +18,7 @@ export function find(res, options) {
           firstName: User.firstName,
           lastName: User.lastName,
           status: User.status,
+          redirect: User.redirect,
           allowedPaths: User.permissions().allowedPaths,
           excludedPaths: User.permissions().excludedPaths
         } : null;

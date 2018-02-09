@@ -33,7 +33,7 @@ export function find(res, options) {
       include: [{
         model: DB.User,
         as: 'User',
-        attributes: ['userId', 'firstName', 'lastName', 'email', 'status']
+        attributes: ['userId', 'firstName', 'lastName', 'email', 'status', 'redirect']
       }]
     })
     .then(Session => {
@@ -82,7 +82,7 @@ export function auth(req, res) {
       return DB.Session
         .create(sessionData)
         .then(() => {
-          data = Object.assign({}, { token }, data);
+          data = Object.assign({}, { token }, data, { redirect: User.json.redirect });
           return { status, data };
         });
     });

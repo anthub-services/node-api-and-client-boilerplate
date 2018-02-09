@@ -16,6 +16,7 @@ export default (sequelize, DataTypes) => {
       unique: true
     },
     password: DataTypes.STRING,
+    redirect: DataTypes.JSON,
     status: DataTypes.STRING
   });
 

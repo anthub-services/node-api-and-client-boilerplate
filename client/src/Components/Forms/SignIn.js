@@ -8,8 +8,8 @@ import * as FormHelper from '../../Lib/Helpers/Form';
 import * as Session from '../../Lib/Helpers/Session';
 
 export default class SignIn extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.onSubmit = this.onSubmit.bind(this);
     this.state = {
@@ -19,7 +19,8 @@ export default class SignIn extends Component {
       showAlertMessage: false,
       isSigningIn: false,
       isSignedIn: Session.isSignedIn(),
-      redirect: { url: '/' }
+      redirect: { url: '/' },
+      locationState:  props.location.state
     };
   }
 
@@ -52,7 +53,7 @@ export default class SignIn extends Component {
           redirect: redirect ? redirect : this.state.redirect
         });
 
-        if (redirect && redirect.external) {
+        if (!this.state.locationState && redirect && redirect.external) {
           return window.location.href = redirect.url;
         }
 
@@ -88,8 +89,9 @@ export default class SignIn extends Component {
 
   render() {
     if (this.state.isSignedIn) {
-      const locationState = this.props.location.state;
-      const referrer = locationState ? locationState.from.pathname : this.state.redirect.url;
+      const referrer = this.state.locationState
+        ? this.state.locationState.from.pathname
+        : this.state.redirect.url;
 
       return <Redirect to={referrer} />;
     }
