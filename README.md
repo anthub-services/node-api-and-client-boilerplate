@@ -1,4 +1,4 @@
-# Node Client and API Boilerplate
+# Node API and Client Boilerplate
 Required node version is `9.2.1`. The [API](https://github.com/rickyhurtado/node-client-and-api-boilerplate/tree/master/api) app is powered by [Express](https://expressjs.com/) and [PostgreSQL](https://www.postgresql.org/) database and the [client](https://github.com/rickyhurtado/node-client-and-api-boilerplate/tree/master/client) app is bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app) and [Bootstrap 3.3](http://getbootstrap.com/docs/3.3/) framework and theme.
 
 ## Running the Apps
@@ -175,7 +175,7 @@ Note: To run the commands above for separate client Docker instance, simply chan
 
 ## Users
 
-With the [API](https://github.com/rickyhurtado/node-client-and-api-boilerplate/tree/master/api) app, use the following credentials to test different API responses. Default password for all accounts is `password`. Open [./api_client/src/controllers/Session.js](https://github.com/rickyhurtado/node-client-and-api-boilerplate/blob/master/api/src/controllers/Sessions.js) for reference.
+With the [API](https://github.com/rickyhurtado/node-client-and-api-boilerplate/tree/master/api) app, use the following credentials to test different API responses. Default password for all accounts is `password`.
 
 - **Admin User:** `admin@email.com` - can access all applications
 - **Admin User witout Settings page:** `admin_no_settings@email.com` - no access on admin Settings page

@@ -82,7 +82,7 @@ Note: To view the Docker containers, open another terminal then enter `docker ps
 
 ## Users
 
-Use the following credentials to test different API responses. Default password for all accounts is `password`. Open [./api_client/src/controllers/Session.js](https://github.com/rickyhurtado/node-client-and-api-boilerplate/blob/master/api/src/controllers/Sessions.js) for reference.
+Use the following credentials to test different API responses. Default password for all accounts is `password`.
 
 - **Admin User:** `admin@email.com` - can access all applications
 - **Admin User witout Settings page:** `admin_no_settings@email.com` - no access on admin Settings page
