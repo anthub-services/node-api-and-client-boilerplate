@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import Layout from '../../Components/Layout';
+import PageNotFound from '../../Views/Admin/PageNotFound';
 import * as Session from '../Helpers/Session';
 
 export const SiteRoute = ({component: Component, ...rest}) => {
@@ -14,24 +15,23 @@ export const SiteRoute = ({component: Component, ...rest}) => {
 };
 
 export const AdminRoute = ({component: Component, ...rest}) => {
-  const layout = (
-    <Layout.Admin>
-      <Component {...rest} />
-    </Layout.Admin>
-  );
+  const { path } = { ...rest };
+  let component = <Component {...rest} />;
+
+  if (path && path !== '/admin/*' && Session.isSignedIn() && Session.accessDenied(path)) {
+    console.log(`[path: ${path}] Access denied!`)
+    component = <PageNotFound {...rest} />;
+  }
+
+  const layout = <Layout.Admin>{component}</Layout.Admin>;
 
   return <PrivateRoute {...rest} layout={layout} />;
 };
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
-  const { path, layout } = { ...rest };
+  const { layout } = { ...rest };
 
   Session.verifyToken();
-
-  if (path && Session.isSignedIn() && Session.accessDenied(path)) {
-    console.log(`[path: ${path}] Access denied!`)
-    return <Redirect to="/" />;
-  }
 
   return (
     <Route {...rest} render={(props) => (
