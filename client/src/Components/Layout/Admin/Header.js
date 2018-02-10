@@ -7,6 +7,8 @@ import ReactLogo from '../../../Assets/Images/react-logo.svg';
 
 class Header extends Component {
   render() {
+    const path = this.props.match.path;
+
     return (
       <header className="header">
         <Navbar inverse className="navbar-fixed-top">
@@ -20,7 +22,7 @@ class Header extends Component {
           <Navbar.Collapse>
             <ul className="navbar-nav nav navbar-right">
               <NavLink title="Home" to="/" />
-              <Button.SignOut referrer={this.props.match.path} />
+              <Button.SignOut referrer={path} />
             </ul>
           </Navbar.Collapse>
         </Navbar>
