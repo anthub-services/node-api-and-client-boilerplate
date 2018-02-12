@@ -1,4 +1,0 @@
-#!/bin/bash
-source $PWD/../bin/bash.sh
-
-execute docker-compose run --rm database /bin/bash -c "PGPASSWORD=root dropdb --if-exists -U express_api_user -h database express_api_dev"

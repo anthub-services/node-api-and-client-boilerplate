@@ -1,11 +1,7 @@
 # React App
 Required node version is `9.2.1`. The client app is bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app) and [Bootstrap 3.3](http://getbootstrap.com/docs/3.3/) framework and theme.
 
-## Running the App
-
-### Starting the app in local:
-
-**React App**
+## Starting the Client App
 
 Open a terminal console and change the project directory from `root` to `client`. Copy `.env.dist` to `.env` and change the values of the environment variables if needed.
 
@@ -18,65 +14,53 @@ REACT_APP_API_VERIFY_TOKEN_URL=http://localhost:7770/verify-token
 REACT_APP_API_JWT_SECRET=jwtsecretcode
 ```
 
-Then run the following scripts in the terminal:
+Then run the following commands:
 
 ```
 yarn
 yarn start
 ```
 
-To generate the `./client/src/Assets/Styles/Style.css`, open another terminal window and change the project directory from `root` to `client` then run the following script:
+Note: See **Bash Commands** section for Docker.
+
+To generate the `./client/src/Assets/Styles/Style.css`, open another terminal console and change the project directory from `root` to `client` then run the following command:
 
 ```
 yarn run watch-css
 ```
 
-The script above works only in Mac with the `fsevents` module installed. Run the script below as an alternative:
+The command above works only in Mac with the `fsevents` module installed. Run the command below as an alternative:
 
 ```
 yarn run build-css
 ```
 
-Note: You must run the script above manually everytime you made changes to `.scss` files.  All the `*.scss` files shall be compiled to `*.css` but only the `Style.css` is included in the repository.
+Note: You must run the command above manually everytime you made changes to `.scss` files.  All the `*.scss` files shall be compiled to `*.css` but only the `Style.css` is included in the repository.
 
-Access the API app at <http://localhost:7771>.
+Access the app at <http://localhost:7771>.
 
-### Starting the App in Docker:
+## Docker
 
-Download and install the [Docker Community Edition](https://www.docker.com/community-edition). With [Docker](https://www.docker.com/), both the API and client apps can be started using one script. First, do the same instructions above except for the `yarn`, `yarn start`, and `yarn global add detect-port` scripts. Then change directory to `root`, and run the following scripts in the terminal:
+Download and install the [Docker Community Edition](https://www.docker.com/community-edition).
 
-```
-docker-compose build
-docker-compose up
-```
+Note: See **Bash Commands** section for Docker.
 
-Note that the `docker-compose build` script is executed only once if the Docker image has not been created yet.
-
-To shutdown the app, press `CTRL+C` and run the following script in the terminal:
-
-```
-docker-compose down
-```
-
-The `yarn run watch-css` script should be running on a separate terminal window.
-
-### Docker
-
-See **Bash Commands** below.
+The `yarn run watch-css` command should be running on a separate terminal console for client app.
 
 ## Bash Commands
 
-Change the project directory from `root` to `client` then run the following commands:
+From the `root` directory of the project, run the following commands:
+
+Note: To view the Docker containers, open another terminal then enter `docker ps`. To manage separate Docker instance for client, open another terminal console and change the project directory from `root` to `client` and run the commands below.
 
 ### Docker
 
 | Command                                | Description                                     |
 |----------------------------------------|-------------------------------------------------|
-| `./bin/start`                          | Build and run the client service                |
-| `./bin/stop`                           | Stop the client service                         |
+| `./bin/install`                        | Build the Docker container                      |
+| `./bin/start`                          | Build and run the client                        |
+| `./bin/stop`                           | Stop the service                                |
 | `./bin/console <container ID or Name>` | Access the terminal console of client container |
-
-Note: To view the Docker containers, open another terminal enter `docker ps`. To manage separate Docker instance for client, open another terminal window and change the project directory from `root` to `client` and run the commands above.
 
 ### CSS
 
@@ -85,9 +69,11 @@ Note: To view the Docker containers, open another terminal enter `docker ps`. To
 | `./bin/css/watch` | Watch and compile *.scss files on file changes (for Mac users only) |
 | `./bin/css/build` | Manually compile *.scss files                                       |
 
+Note: To run the commands above for separate client Docker instance, simply change the project directory from `root` to `client`. Same applies for local.
+
 ## Users
 
-With the [API](https://github.com/rickyhurtado/node-client-and-api-boilerplate/tree/master/api) app, use the following credentials to test different API responses. Default password for all accounts is `password`. Open [./api_client/src/controllers/Session.js](https://github.com/rickyhurtado/node-client-and-api-boilerplate/blob/master/api/src/controllers/Sessions.js) for reference.
+With the [API](https://github.com/rickyhurtado/node-client-and-api-boilerplate/tree/master/api) app, use the following credentials to test different API responses. Default password for all accounts is `password`.
 
 - **Admin User:** `admin@email.com` - can access all applications
 - **Admin User witout Settings page:** `admin_no_settings@email.com` - no access on admin Settings page

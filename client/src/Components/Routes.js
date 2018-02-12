@@ -9,16 +9,16 @@ export default class Routes extends Component {
     return (
       <BrowserRouter onUpdate={() => window.scrollTo(0, 0)}>
         <Switch>
-          <SiteRoute exact path='/' component={Site.Home} />
-          <SiteRoute exact path='/about' component={Site.About} />
-          <SiteRoute exact path='/sign-in' component={Site.SignIn} />
+          <SiteRoute exact path="/" component={Site.Home} />
+          <SiteRoute exact path="/about" component={Site.About} />
+          <SiteRoute exact path="/sign-in" component={Site.SignIn} />
 
-          <AdminRoute exact path='/admin' component={() => <Redirect to='/admin/dashboard' />} />
-          <AdminRoute exact path='/admin/dashboard' component={Admin.Dashboard} />
-          <AdminRoute exact path='/admin/settings' component={Admin.Settings} />
-          <AdminRoute path='/admin/*' component={Admin.PageNotFound} />
+          <AdminRoute exact path="/admin" component={() => <Redirect to="/admin/dashboard" />} />
+          <AdminRoute exact path="/admin/dashboard" component={Admin.Dashboard} />
+          <AdminRoute exact path="/admin/settings" component={Admin.Settings} />
+          <AdminRoute path="/admin/*" component={Admin.PageNotFound} />
 
-          <SiteRoute path='*' component={Site.PageNotFound} />
+          <SiteRoute path="*" component={Site.PageNotFound} />
         </Switch>
       </BrowserRouter>
     );

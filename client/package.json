@@ -6,12 +6,12 @@
   "license": "UNLICENSED",
   "repository": {
     "type": "git",
-    "url": "git@github.com:rickyhurtado/node-client-and-api-boilerplate.git"
+    "url": "git@github.com:rickyhurtado/node-api-and-client-boilerplate.git"
   },
   "bugs": {
-    "url": "https://github.com/rickyhurtado/node-client-and-api-boilerplate/issues"
+    "url": "https://github.com/rickyhurtado/node-api-and-client-boilerplate/issues"
   },
-  "homepage": "https://github.com/rickyhurtado/node-client-and-api-boilerplate/tree/master/client",
+  "homepage": "https://github.com/rickyhurtado/node-api-and-client-boilerplate/tree/master/client",
   "dependencies": {
     "axios": "^0.17.1",
     "jsonwebtoken": "^8.1.1",

@@ -1,4 +1,4 @@
 #!/bin/bash
 source $PWD/../bin/bash.sh
 
-execute yarn run build-css
+execute docker-compose build

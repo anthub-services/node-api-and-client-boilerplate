@@ -1,5 +1,4 @@
 #!/bin/bash
 source $PWD/bin/bash.sh
 
-execute docker-compose build
 execute docker-compose up

@@ -2,4 +2,4 @@
 source $PWD/bin/bash.sh
 
 execute cd api
-execute sequelize db:drop
+execute sequelize db:migrate:undo

@@ -1,9 +1,9 @@
 # Express API Boilerplate
 Required node version is `9.2.1`. The API app is powered by [Express](https://expressjs.com/) and [PostgreSQL](https://www.postgresql.org/) database.
 
-## Running the App
+## Starting the API App
 
-### Starting the app in local:
+Note: Only change the environment variables for `POSTGRES_USER` and `POSTGRES_PASSWORD` if working on local machine.
 
 Open a terminal console and change the project directory from `root` to `api`. Copy `.env.dist` to `.env` and change the values of the environment variables if needed.
 
@@ -17,59 +17,85 @@ POSTGRES_USER=express_api_user
 POSTGRES_PASSWORD=root
 ```
 
-Note: Only change the environment variables for `POSTGRES_USER` and `POSTGRES_PASSWORD` if working on local machine.
-
-Then run the following scripts in the terminal:
+Then run the following commands:
 
 ```
 yarn
 yarn start
 ```
 
-Access the client app at <http://localhost:7770>.
+Note: The database must be created and initialized after starting the app on fresh installation. See **Database using PostgreSQL and Sequelize** section. See **Bash Commands** section for Docker.
 
-### Starting the App in Docker:
+Access the app at <http://localhost:7770>.
 
-Download and install the [Docker Community Edition](https://www.docker.com/community-edition). With [Docker](https://www.docker.com/), both the API and client apps can be started using one script. First, do the same instructions above except for the `yarn`, `yarn start`, and `yarn global add detect-port` scripts. Then change directory to `root`, and run the following scripts in the terminal:
+## Docker
+
+Download and install the [Docker Community Edition](https://www.docker.com/community-edition).
+
+Note: See **Bash Commands** section for Docker.
+
+## Database using PostgreSQL and Sequelize
+
+**Installing PostgreSQL**
+
+**Mac:** [Getting Started with PostgreSQL on Mac OSX](https://www.codementor.io/engineerapart/getting-started-with-postgresql-on-mac-osx-are8jcopb)
+<br>
+**Windows:** [Installing PostgreSQL, Creating a User, and Creating a Database](https://confluence.atlassian.com/display/CONF30/Database+Setup+for+PostgreSQL+on+Windows)
+
+NOTE: For Mac users, you can run the PostgreSQL server on a separate terminal console by running the following command:
 
 ```
-docker-compose build
-docker-compose up
+postgres -D /usr/local/var/postgres
 ```
 
-Note: The `docker-compose build` script is executed only once if the Docker image has not been created yet.
+**Create and Initialize Database**
 
-To shutdown the app, press `CTRL+C` and run the following script in the terminal:
+Open a terminal console and change the project directory from `root` to `api` and run the following command:
 
 ```
-docker-compose down
+sequelize db:create
+sequelize db:migrate
+sequelize db:seed:all
 ```
+
+To drop database, run the following command:
+
+```
+sequelize db:drop
+```
+
+See **Bash Commands** section for Docker.
 
 ## Bash Commands
 
-Change the project directory from `root` to `api` then run the following commands:
+From the `root` directory of the project, run the following commands:
+
+Note: To view the Docker containers, open another terminal then enter `docker ps`. To manage separate Docker instance for API, open another terminal console and change the project directory from `root` to `api` and run the commands below.
 
 ### Docker
 
-| Command                                | Description                                  |
-|----------------------------------------|----------------------------------------------|
-| `./bin/start`                          | Build and run the api and database services  |
-| `./bin/stop`                           | Stop all the services                        |
-| `./bin/console <container ID or Name>` | Access the terminal console of API container |
+| Command                                | Description                                         |
+|----------------------------------------|-----------------------------------------------------|
+| `./bin/install`                        | Build the Docker containers and initialise database |
+| `./bin/start`                          | Build and run all the services (API and database)   |
+| `./bin/stop`                           | Stop all the services                               |
+| `./bin/console <container ID or Name>` | Access the terminal console of API container        |
 
-Note: To view the Docker containers, open another terminal then enter `docker ps`. To manage separate Docker instance for API, open another terminal window and change the project directory from `root` to `api` and run the commands above.
+Note:
+
+- To view the Docker containers, open another terminal then enter `docker ps`
+- To manage separate Docker instance for API, open another terminal console and change the project directory from `root` to `api` and run the commands above
 
 ### Database
 
-**Local:**
+**Local**
 
 | Command                               | Description                                                |
 |---------------------------------------|------------------------------------------------------------|
 | `./bin/pg/local/start`                | Start the PostgreSQL server (for Mac users only)           |
-| `./bin/pg/local/initdb`               | Initialise database with schema migration and data seeding |
 | `./bin/pg/local/resetdb`              | Drop and re-initialise database                            |
-| `./bin/pg/local/dropdb`               | Drop database                                              |
 | `./bin/pg/local/migrate`              | Run new schema migration                                   |
+| `./bin/pg/local/migrateundo`          | Revert the recent schema migration                         |
 | `./bin/pg/local/seed <seed file>`     | Run specific data seed file with or without .js extension  |
 | `./bin/pg/local/seedundo <seed file>` | Revert the seed of specific data seed file                 |
 | `./bin/pg/local/psql`                 | Access the database console                                |
@@ -79,6 +105,8 @@ Note: To view the Docker containers, open another terminal then enter `docker ps
 - To run the commands for Docker database service, simply remove the `local` from the command
 - The `start` command works only in local machine
 - Used `./bin/pg/psql <database container ID or Name>` to access the database console
+
+Note: To run the commands above for separate API Docker instance, simply change the project directory from `root` to `api`. Same applies for local.
 
 ## Users
 
