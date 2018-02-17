@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
+import { Redirect } from 'react-router-dom'
 import Axios from '../../Lib/Common/Axios'
 import * as Session from '../../Lib/Helpers/Session'
+import { closeNavbar } from '../../Lib/Common/Views'
 
 export default class SignOut extends Component {
   signOut() {
@@ -8,19 +10,15 @@ export default class SignOut extends Component {
       .post(process.env.REACT_APP_API_SIGN_OUT_URL)
       .then(response => {
         Session.deleteToken()
-
-        const referrer = this.props.referrer.split('/')[1]
-
-        if (referrer === 'admin') {
-          window.location.reload()
-        } else {
-          window.location.href = '/sign-in'
-        }
+        closeNavbar()
+        this.props.auth(false)
       })
   }
 
   render() {
-    if (Session.isSignedIn()) {
+    const props = this.props
+
+    if (props.isSignedIn) {
       return (
         <li>
           <button className="sign-out-btn" onClick={this.signOut.bind(this)}>Sign Out</button>
@@ -28,6 +26,10 @@ export default class SignOut extends Component {
       )
     }
 
-    return null
+    if (['*', '/admin/*'].indexOf(props.referrer) > -1) {
+      return null
+    }
+
+    return <Redirect to={props.referrer} />
   }
 }

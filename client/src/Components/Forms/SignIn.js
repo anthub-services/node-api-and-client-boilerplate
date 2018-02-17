@@ -18,9 +18,8 @@ export default class SignIn extends Component {
       alertMessage: {},
       showAlertMessage: false,
       isSigningIn: false,
-      isSignedIn: Session.isSignedIn(),
       redirect: { url: '/' },
-      locationState:  props.location.state
+      locationState: props.location.state
     }
   }
 
@@ -62,9 +61,9 @@ export default class SignIn extends Component {
         setTimeout(function(){
           _this.setState({
             formData: initFormData,
-            isSignedIn: true,
             isSigningIn: false
           })
+          _this.props.auth(true);
         }, 500)
       })
       .catch(error => {
@@ -88,7 +87,7 @@ export default class SignIn extends Component {
   }
 
   render() {
-    if (this.state.isSignedIn) {
+    if (this.props.isSignedIn) {
       const referrer = this.state.locationState
         ? this.state.locationState.from.pathname
         : this.state.redirect.url

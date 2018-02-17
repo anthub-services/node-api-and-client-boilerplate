@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import { Navbar } from 'react-bootstrap'
 import { NavLink } from '../../../Lib/Common/Views'
-import Button from '../../Button'
+import SignOutButton from '../../../Redux/Containers/Sessions/SignOut'
 import ReactLogo from '../../../Assets/Images/react-logo.svg'
 
 class Header extends Component {
@@ -23,7 +23,7 @@ class Header extends Component {
             <ul className="navbar-nav nav navbar-right">
               <NavLink title="Home" to="/" />
               <NavLink title="Redux" to="/redux" />
-              <Button.SignOut referrer={path} />
+              <SignOutButton referrer={path} />
             </ul>
           </Navbar.Collapse>
         </Navbar>

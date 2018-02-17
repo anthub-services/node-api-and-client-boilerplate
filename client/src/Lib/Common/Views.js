@@ -44,6 +44,14 @@ export const AuthNavLink = ({...props}) => {
   ) : null
 }
 
+export function closeNavbar() {
+  const { width } = viewportDimension()
+
+  if (width < 768) {
+    document.getElementById('js-navbar-toggle-btn').click()
+  }
+}
+
 export function viewportDimension() {
   const w = window,
         d = document,
@@ -57,12 +65,4 @@ export function viewportDimension() {
 
 function navLinkIsActive({...props}) {
   return props.path === props.to ? 'active' : ''
-}
-
-function closeNavbar() {
-  const { width } = viewportDimension()
-
-  if (width < 768) {
-    document.getElementById('js-navbar-toggle-btn').click()
-  }
 }

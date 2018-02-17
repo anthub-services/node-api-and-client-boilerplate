@@ -3,8 +3,8 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return Promise.all([
-      userRedirect(queryInterface, 'referrer@email.com', { url: '/about' }),
-      userRedirect(queryInterface, 'redirect@email.com', { external: true, url: 'https://fb.com/Ironcoder' })
+      userRedirect(queryInterface, 'referrer@email.com', { url: '/redux' }),
+      userRedirect(queryInterface, 'redirect@email.com', { external: true, url: 'https://github.com/rickyhurtado/node-api-and-client-boilerplate' })
     ])
   },
 

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import { Navbar } from 'react-bootstrap'
 import { NavLink, AuthNavLink } from '../../../Lib/Common/Views'
-import Button from '../../Button'
+import SignOutButton from '../../../Redux/Containers/Sessions/SignOut'
 
 class Header extends Component {
   render() {
@@ -20,7 +20,7 @@ class Header extends Component {
               <NavLink title="Redux" to="/redux" path={path} />
               <NavLink title="Sign In" to="/sign-in" path={path} isSignedOut />
               <AuthNavLink title="Admin" to="/admin/dashboard" />
-              <Button.SignOut referrer={path} />
+              <SignOutButton referrer={path} />
             </ul>
           </Navbar.Collapse>
         </Navbar>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 import { AuthNavLink } from '../../../Lib/Common/Views'
-import Button from '../../Button'
+import SignOutButton from '../../../Redux/Containers/Sessions/SignOut'
 
 class Sidebar extends Component {
   render() {
@@ -12,7 +12,7 @@ class Sidebar extends Component {
         <ul className="nav nav-sidebar">
           <AuthNavLink title="Dashboard" to="/admin/dashboard" path={path} />
           <AuthNavLink title="Settings" to="/admin/settings" path={path} />
-          <Button.SignOut referrer={path} />
+          <SignOutButton referrer={path} />
         </ul>
       </nav>
     )
