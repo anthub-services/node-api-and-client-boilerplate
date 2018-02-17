@@ -17,7 +17,7 @@ class Header extends Component {
           </Navbar.Header>
           <Navbar.Collapse>
             <ul className="navbar-nav nav navbar-right">
-              <NavLink title="About" to="/about" path={path} />
+              <NavLink title="Redux" to="/redux" path={path} />
               <NavLink title="Sign In" to="/sign-in" path={path} isSignedOut />
               <AuthNavLink title="Admin" to="/admin/dashboard" />
               <Button.SignOut referrer={path} />

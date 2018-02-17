@@ -1,0 +1,17 @@
+.gospel-authors {
+  .btn {
+    &:focus {
+      outline: none;
+    }
+  }
+  .list-group-item {
+    cursor: pointer;
+    transition: background 0.3s;
+    &.selected {
+      font-weight: bold;
+    }
+    &:hover {
+      background: #efefef;
+    }
+  }
+}

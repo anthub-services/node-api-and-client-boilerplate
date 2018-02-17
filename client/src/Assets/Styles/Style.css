@@ -21,6 +21,9 @@ body {
     padding-right: 15px;
     text-align: center; }
 
+.no-padding {
+  padding: 0; }
+
 /*!
  * Bootstrap v3.3.6 (http://getbootstrap.com)
  * Copyright 2011-2015 Twitter, Inc.
@@ -532,6 +535,10 @@ body {
   font-size: 25px;
   font-weight: normal;
   margin-top: 0; }
+  .page-title-sub {
+    font-size: 18px;
+    font-weight: normal;
+    margin-top: 10px; }
 
 a {
   transition: all 0.3s; }
@@ -579,6 +586,17 @@ a {
 
 .form .error-detail {
   padding-left: 26px; }
+
+.gospel-authors .btn:focus {
+  outline: none; }
+
+.gospel-authors .list-group-item {
+  cursor: pointer;
+  transition: background 0.3s; }
+  .gospel-authors .list-group-item.selected {
+    font-weight: bold; }
+  .gospel-authors .list-group-item:hover {
+    background: #efefef; }
 
 .home-page {
   text-align: center; }
