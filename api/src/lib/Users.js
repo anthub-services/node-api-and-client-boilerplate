@@ -1,7 +1,7 @@
-import DB from '../models';
+import DB from '../models'
 
 export function find(res, options) {
-  const { where, returnData } = options;
+  const { where, returnData } = options
 
   return DB.User
     .findOne({ where,
@@ -21,17 +21,17 @@ export function find(res, options) {
           redirect: User.redirect,
           allowedPaths: User.permissions().allowedPaths,
           excludedPaths: User.permissions().excludedPaths
-        } : null;
+        } : null
 
       if (returnData) {
-        return { object: User, json };
+        return { object: User, json }
       }
 
-      return res.status(User ? 200 : 404).send(json);
+      return res.status(User ? 200 : 404).send(json)
     })
     .catch(error => {
       console.log(error)
 
-      return returnData ? error : res.status(400).send(error);
-    });
-};
+      return returnData ? error : res.status(400).send(error)
+    })
+}

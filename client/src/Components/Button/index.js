@@ -1,4 +1,4 @@
-import SignOut from './SignOut';
+import SignOut from './SignOut'
 
 export default {
   SignOut

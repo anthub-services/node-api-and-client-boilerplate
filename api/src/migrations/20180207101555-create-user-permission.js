@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('UserPermissions', {
@@ -27,10 +27,10 @@ module.exports = {
       }
     })
     .then(() => {
-      queryInterface.addIndex('UserPermissions', { fields: ['userId', 'permissionId'] });
-    });
+      queryInterface.addIndex('UserPermissions', { fields: ['userId', 'permissionId'] })
+    })
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('UserPermissions');
+    return queryInterface.dropTable('UserPermissions')
   }
-};
+}

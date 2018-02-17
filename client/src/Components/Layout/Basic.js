@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import Header from './Basic/Header';
-import Footer from './Basic/Footer';
+import React, { Component } from 'react'
+import Header from './Basic/Header'
+import Footer from './Basic/Footer'
 
 export default class Basic extends Component {
   render() {
@@ -12,6 +12,6 @@ export default class Basic extends Component {
         </main>
         <Footer />
       </div>
-    );
+    )
   }
-};
+}

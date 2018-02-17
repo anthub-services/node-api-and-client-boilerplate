@@ -1,8 +1,8 @@
-import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
-import Layout from '../../Components/Layout';
-import PageNotFound from '../../Views/Admin/PageNotFound';
-import * as Session from '../Helpers/Session';
+import React from 'react'
+import { Route, Redirect } from 'react-router-dom'
+import Layout from '../../Components/Layout'
+import PageNotFound from '../../Views/Admin/PageNotFound'
+import * as Session from '../Helpers/Session'
 
 export const SiteRoute = ({component: Component, ...rest}) => {
   return (
@@ -11,34 +11,34 @@ export const SiteRoute = ({component: Component, ...rest}) => {
         <Component {...props} />
       </Layout.Basic>
     )} />
-  );
-};
+  )
+}
 
 export const AdminRoute = ({component: Component, ...rest}) => {
-  const { path } = { ...rest };
-  let component = <Component {...rest} />;
+  const { path } = {...rest}
+  let component = <Component {...rest} />
 
   if (path && path !== '/admin/*' && Session.isSignedIn() && Session.accessDenied(path)) {
     console.log(`[path: ${path}] Access denied!`)
-    component = <PageNotFound {...rest} />;
+    component = <PageNotFound {...rest} />
   }
 
-  const layout = <Layout.Admin>{component}</Layout.Admin>;
+  const layout = <Layout.Admin>{component}</Layout.Admin>
 
-  return <PrivateRoute {...rest} layout={layout} />;
-};
+  return <PrivateRoute {...rest} layout={layout} />
+}
 
-const PrivateRoute = ({ component: Component, ...rest }) => {
-  const { layout } = { ...rest };
+const PrivateRoute = ({component: Component, ...rest}) => {
+  const { layout } = {...rest}
 
-  Session.verifyToken();
+  Session.verifyToken()
 
   return (
     <Route {...rest} render={(props) => (
       Session.isSignedIn() ? layout : redirectToSignInPage(props)
     )} />
-  );
-};
+  )
+}
 
 function redirectToSignInPage(props) {
   return  (
@@ -46,5 +46,5 @@ function redirectToSignInPage(props) {
       pathname: '/sign-in',
       state: { from: props.location }
     }} />
-  );
+  )
 }

@@ -1,19 +1,19 @@
-import React, { Component } from 'react';
-import { Alert } from 'react-bootstrap';
+import React, { Component } from 'react'
+import { Alert } from 'react-bootstrap'
 
 export default class Basic extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       show: true
-    };
+    }
 
-    this.hideAlert = this.hideAlert.bind(this);
+    this.hideAlert = this.hideAlert.bind(this)
   }
 
   hideAlert() {
-    this.setState({ show: false });
+    this.setState({ show: false })
   }
 
   render() {
@@ -23,6 +23,6 @@ export default class Basic extends Component {
         : <Alert bsStyle={this.props.type} onDismiss={this.hideAlert}>{this.props.children}</Alert>
     }
 
-    return null;
+    return null
   }
-};
+}

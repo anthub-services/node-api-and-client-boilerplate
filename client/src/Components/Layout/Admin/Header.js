@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
-import { Link, withRouter } from 'react-router-dom';
-import { Navbar } from 'react-bootstrap';
-import { NavLink } from '../../../Lib/Common/Views';
-import Button from '../../Button';
-import ReactLogo from '../../../Assets/Images/react-logo.svg';
+import React, { Component } from 'react'
+import { Link, withRouter } from 'react-router-dom'
+import { Navbar } from 'react-bootstrap'
+import { NavLink } from '../../../Lib/Common/Views'
+import Button from '../../Button'
+import ReactLogo from '../../../Assets/Images/react-logo.svg'
 
 class Header extends Component {
   render() {
-    const path = this.props.match.path;
+    const path = this.props.match.path
 
     return (
       <header className="header">
@@ -27,8 +27,8 @@ class Header extends Component {
           </Navbar.Collapse>
         </Navbar>
       </header>
-    );
+    )
   }
-};
+}
 
-export default withRouter(Header);
+export default withRouter(Header)

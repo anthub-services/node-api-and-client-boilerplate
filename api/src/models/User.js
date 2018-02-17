@@ -1,6 +1,6 @@
-'use strict';
+'use strict'
 
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcrypt'
 
 export default (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
@@ -18,18 +18,18 @@ export default (sequelize, DataTypes) => {
     password: DataTypes.STRING,
     redirect: DataTypes.JSON,
     status: DataTypes.STRING
-  });
+  })
 
   User.prototype.authenticate = function(password) {
-    return bcrypt.compareSync(password, this.password);
-  };
+    return bcrypt.compareSync(password, this.password)
+  }
 
   User.prototype.permissions = function() {
-    let allowedPaths = [];
-    let excludedPaths = [];
+    let allowedPaths = []
+    let excludedPaths = []
 
     for (const index in this.Permissions) {
-      const permission = this.Permissions[index];
+      const permission = this.Permissions[index]
 
       if (permission.UserPermission.allowedPath) {
         allowedPaths.push(permission.path)
@@ -39,21 +39,21 @@ export default (sequelize, DataTypes) => {
       }
     }
 
-    return { allowedPaths, excludedPaths };
-  };
+    return { allowedPaths, excludedPaths }
+  }
 
   User.associate = (models) => {
     User.belongsToMany(models.Permission, {
       through: 'UserPermission',
       as: 'Permissions',
       foreignKey: 'userId'
-    });
+    })
 
     User.hasMany(models.Session, {
       as: 'Sessions',
       foreignKey: 'userId'
-    });
-  };
+    })
+  }
 
-  return User;
-};
+  return User
+}

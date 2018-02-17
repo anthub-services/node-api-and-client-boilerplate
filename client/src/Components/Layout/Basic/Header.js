@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import { Link, withRouter } from 'react-router-dom';
-import { Navbar } from 'react-bootstrap';
-import { NavLink, AuthNavLink } from '../../../Lib/Common/Views';
-import Button from '../../Button';
+import React, { Component } from 'react'
+import { Link, withRouter } from 'react-router-dom'
+import { Navbar } from 'react-bootstrap'
+import { NavLink, AuthNavLink } from '../../../Lib/Common/Views'
+import Button from '../../Button'
 
 class Header extends Component {
   render() {
-    const path = this.props.match.path;
+    const path = this.props.match.path
 
     return (
       <header className="header">
@@ -25,8 +25,8 @@ class Header extends Component {
           </Navbar.Collapse>
         </Navbar>
       </header>
-    );
+    )
   }
-};
+}
 
-export default withRouter(Header);
+export default withRouter(Header)

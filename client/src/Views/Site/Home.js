@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import ReactLogo from '../../Assets/Images/react-logo.svg';
-import { PageTitle } from '../../Lib/Common/Views';
+import React, { Component } from 'react'
+import ReactLogo from '../../Assets/Images/react-logo.svg'
+import { PageTitle } from '../../Lib/Common/Views'
 
 export default class Home extends Component {
   render() {
@@ -11,6 +11,6 @@ export default class Home extends Component {
           <PageTitle />
         </header>
       </div>
-    );
+    )
   }
-};
+}

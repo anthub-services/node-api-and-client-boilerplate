@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
@@ -14,14 +14,14 @@ module.exports = {
       userPermission(queryInterface, 'redirect@email.com', '/admin/dashboard')
     ])
     .then(promises => {
-      return queryInterface.bulkInsert('UserPermissions', promises, {});
-    });
+      return queryInterface.bulkInsert('UserPermissions', promises, {})
+    })
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.bulkDelete('UserPermissions', null, {});
+    return queryInterface.bulkDelete('UserPermissions', null, {})
   }
-};
+}
 
 function userPermission(queryInterface, email, path, allowedPath=true) {
   return Promise
@@ -30,31 +30,31 @@ function userPermission(queryInterface, email, path, allowedPath=true) {
       permissionId(queryInterface, path)
     ])
     .then(promises => {
-      const date = new Date();
+      const date = new Date()
       const data = {
         userId: promises[0],
         permissionId: promises[1],
         allowedPath: allowedPath,
         createdAt: date,
         updatedAt: date
-      };
+      }
 
-      console.log(`[User Permission, ${email}, ${path}] `, data);
+      console.log(`[User Permission, ${email}, ${path}] `, data)
 
-      return data;
-    });
+      return data
+    })
 }
 
 function userId(queryInterface, email) {
   return queryInterface
     .rawSelect('Users', {
       where: { email: email },
-    }, ['userId']);
+    }, ['userId'])
 }
 
 function permissionId(queryInterface, path) {
   return queryInterface
     .rawSelect('Permissions', {
       where: { path: path },
-    }, ['permissionId']);
+    }, ['permissionId'])
 }

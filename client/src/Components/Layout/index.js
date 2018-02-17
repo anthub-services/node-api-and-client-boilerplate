@@ -1,7 +1,7 @@
-import Admin from './Admin';
-import Basic from './Basic';
+import Admin from './Admin'
+import Basic from './Basic'
 
 export default {
   Admin,
   Basic
-};
+}

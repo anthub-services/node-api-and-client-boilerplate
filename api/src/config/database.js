@@ -1,13 +1,13 @@
 if (!process.env.PG_DB) {
-  const fs = require('fs');
-  const dotenv = require('dotenv');
-  const envConfig = dotenv.parse(fs.readFileSync('.env'));
+  const fs = require('fs')
+  const dotenv = require('dotenv')
+  const envConfig = dotenv.parse(fs.readFileSync('.env'))
 
   for (var k in envConfig) {
     process.env[k] = envConfig[k]
   }
 
-  console.log('[api][sequelize] Loaded database ENV vars from .env file');
+  console.log('[api][sequelize] Loaded database ENV vars from .env file')
 }
 
 module.exports = {
@@ -19,4 +19,4 @@ module.exports = {
     dialect: 'postgres',
     migrationStorageTableName: 'sequelize_meta'
   }
-};
+}

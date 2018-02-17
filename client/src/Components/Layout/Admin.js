@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import Header from './Admin/Header';
-import Sidebar from './Admin/Sidebar';
-import Footer from './Admin/Footer';
+import React, { Component } from 'react'
+import Header from './Admin/Header'
+import Sidebar from './Admin/Sidebar'
+import Footer from './Admin/Footer'
 
 export default class Admin extends Component {
   render() {
@@ -18,6 +18,6 @@ export default class Admin extends Component {
         </main>
         <Footer />
       </div>
-    );
+    )
   }
-};
+}

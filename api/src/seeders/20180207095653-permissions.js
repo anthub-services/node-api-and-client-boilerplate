@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
@@ -7,24 +7,24 @@ module.exports = {
       permission('Admin', '/admin'),
       permission('Admin > Dashboard', '/admin/dashboard'),
       permission('Admin > Settings', '/admin/settings')
-    ], {});
+    ], {})
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.bulkDelete('Permissions', null, {});
+    return queryInterface.bulkDelete('Permissions', null, {})
   }
-};
+}
 
 function permission(name, path) {
-  const date = new Date();
+  const date = new Date()
   const data = {
     name: name,
     path: path,
     createdAt: date,
     updatedAt: date
-  };
+  }
 
-  console.log('[Permission] ', data);
+  console.log('[Permission] ', data)
 
-  return data;
+  return data
 }

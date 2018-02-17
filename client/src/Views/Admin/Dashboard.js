@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { PageTitle } from '../../Lib/Common/Views';
+import React, { Component } from 'react'
+import { PageTitle } from '../../Lib/Common/Views'
 
 export default class Dashboard extends Component {
   render() {
@@ -7,6 +7,6 @@ export default class Dashboard extends Component {
       <div className="dashboard">
         <PageTitle title="Dashboard" appName="Admin" />
       </div>
-    );
+    )
   }
-};
+}

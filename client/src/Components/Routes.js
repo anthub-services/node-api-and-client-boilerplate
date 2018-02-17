@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import { BrowserRouter, Switch, Redirect } from 'react-router-dom';
-import Site from '../Views/Site';
-import Admin from '../Views/Admin';
-import { SiteRoute, AdminRoute } from '../Lib/Common/Routes';
+import React, { Component } from 'react'
+import { BrowserRouter, Switch, Redirect } from 'react-router-dom'
+import Site from '../Views/Site'
+import Admin from '../Views/Admin'
+import { SiteRoute, AdminRoute } from '../Lib/Common/Routes'
 
 export default class Routes extends Component {
   render() {
@@ -21,6 +21,6 @@ export default class Routes extends Component {
           <SiteRoute path="*" component={Site.PageNotFound} />
         </Switch>
       </BrowserRouter>
-    );
+    )
   }
-};
+}

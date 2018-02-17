@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 export default (sequelize, DataTypes) => {
   const Session = sequelize.define('Session', {
@@ -12,14 +12,14 @@ export default (sequelize, DataTypes) => {
     ipAddress: DataTypes.STRING,
     token: DataTypes.TEXT,
     signedOut: DataTypes.BOOLEAN
-  });
+  })
 
   Session.associate = (models) => {
     Session.belongsTo(models.User, {
       as: 'User',
       foreignKey: 'userId'
-    });
-  };
+    })
+  }
 
-  return Session;
-};
+  return Session
+}

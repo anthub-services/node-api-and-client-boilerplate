@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
-import { AuthNavLink } from '../../../Lib/Common/Views';
-import Button from '../../Button';
+import React, { Component } from 'react'
+import { withRouter } from 'react-router-dom'
+import { AuthNavLink } from '../../../Lib/Common/Views'
+import Button from '../../Button'
 
 class Sidebar extends Component {
   render() {
-    const path = this.props.match.path;
+    const path = this.props.match.path
 
     return (
       <nav className="sidebar">
@@ -15,8 +15,8 @@ class Sidebar extends Component {
           <Button.SignOut referrer={path} />
         </ul>
       </nav>
-    );
+    )
   }
-};
+}
 
-export default withRouter(Sidebar);
+export default withRouter(Sidebar)

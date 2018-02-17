@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { PageTitle } from '../../Lib/Common/Views';
+import React, { Component } from 'react'
+import { PageTitle } from '../../Lib/Common/Views'
 
 export default class About extends Component {
   render() {
@@ -7,6 +7,6 @@ export default class About extends Component {
       <div className="about-page">
         <PageTitle title="About" />
       </div>
-    );
+    )
   }
-};
+}

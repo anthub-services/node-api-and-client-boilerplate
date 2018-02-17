@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 export default (sequelize, DataTypes) => {
   const UserPermission = sequelize.define('UserPermission', {
@@ -10,7 +10,7 @@ export default (sequelize, DataTypes) => {
     userId: DataTypes.INTEGER,
     permissionId: DataTypes.INTEGER,
     allowedPath: DataTypes.BOOLEAN
-  });
+  })
 
-  return UserPermission;
-};
+  return UserPermission
+}
