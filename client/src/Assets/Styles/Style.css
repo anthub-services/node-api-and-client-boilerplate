@@ -598,14 +598,14 @@ a {
   .gospel-authors .list-group-item:hover {
     background: #efefef; }
 
-.home-page {
+.home-view {
   text-align: center; }
-  .home-page-logo {
+  .home-view-logo {
     animation: home-logo-spin infinite 20s linear;
     height: 200px; }
-  .home-page-header {
+  .home-view-header {
     padding: 20px; }
-  .home-page .page-title {
+  .home-view .page-title {
     font-size: 1.5em;
     font-weight: normal; }
 
@@ -615,8 +615,8 @@ a {
   to {
     transform: rotate(360deg); } }
 
-.sign-in-page .form-wrapper {
+.sign-in-view .form-wrapper {
   width: 400px; }
   @media (max-width: 430px) {
-    .sign-in-page .form-wrapper {
+    .sign-in-view .form-wrapper {
       width: 100%; } }

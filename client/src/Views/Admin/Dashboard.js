@@ -4,7 +4,7 @@ import { PageTitle } from '../../Lib/Common/Views'
 export default class Dashboard extends Component {
   render() {
     return (
-      <div className="dashboard">
+      <div className="dashboard-view">
         <PageTitle title="Dashboard" appName="Admin" />
       </div>
     )
