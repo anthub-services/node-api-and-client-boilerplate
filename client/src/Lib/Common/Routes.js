@@ -31,7 +31,7 @@ export const AdminRoute = ({component: Component, ...rest}) => {
 const PrivateRoute = ({component: Component, ...rest}) => {
   const { layout } = {...rest}
 
-  Session.verifyToken()
+  if (Session.token()) Session.verifyToken()
 
   return (
     <Route {...rest} render={(props) => (
@@ -41,7 +41,7 @@ const PrivateRoute = ({component: Component, ...rest}) => {
 }
 
 function redirectToSignInPage(props) {
-  return  (
+  return (
     <Redirect to={{
       pathname: '/sign-in',
       state: { from: props.location }

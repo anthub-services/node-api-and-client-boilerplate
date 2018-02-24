@@ -1,5 +1,3 @@
-import React from 'react'
-import { Redirect } from 'react-router-dom'
 import Store from 'store'
 import JWT from 'jsonwebtoken'
 import Axios from '../Common/Axios'
@@ -35,10 +33,7 @@ export function isUser() {
 }
 
 export function userIsSignedIn() {
-  if (adminIsSignedIn()) {
-    return true
-  }
-
+  if (adminIsSignedIn()) return true
   return isSignedIn() && isUser()
 }
 
@@ -54,14 +49,8 @@ export function showPage(path) {
   const allowedPaths = tokenData('allowedPaths')
   const excludedPaths = tokenData('excludedPaths')
 
-  if (excludedPaths && excludedPaths.length > 0 && excludedPaths.indexOf(path) > -1) {
-    return false
-  }
-
-  if (allowedPaths && allowedPaths.toString() === '*') {
-    return true
-  }
-
+  if (excludedPaths && excludedPaths.length > 0 && excludedPaths.indexOf(path) > -1) return false
+  if (allowedPaths && allowedPaths.toString() === '*') return true
   return allowedPaths ? allowedPaths.indexOf(path) > -1 : false
 }
 
@@ -76,21 +65,13 @@ export function isAuthorised(path) {
 /* TOKEN */
 
 export function verifyToken() {
-  if (decodedToken() === undefined || decodedToken() === false) {
-    return <Redirect to="/sign-in" />
-  }
-
-  const time = Axios.defaults.headers.common.Authorization ? 0 : 2000
-
-  setTimeout(function() {
-    Axios
-      .get(process.env.REACT_APP_API_VERIFY_TOKEN_URL)
-      .catch(error => {
-        console.log('Error: ', error)
-        Store.remove('token')
-        window.location.reload()
-      })
-  }, time)
+  Axios
+    .get(process.env.REACT_APP_API_VERIFY_TOKEN_URL)
+    .catch(error => {
+      console.log('Error: ', error)
+      Store.remove('token')
+      window.location.reload()
+    })
 }
 
 export function token() {
@@ -107,11 +88,7 @@ export function decodedToken() {
       token(),
       process.env.REACT_APP_API_JWT_SECRET,
       function(errors, decoded) {
-        if (errors) {
-          deleteToken()
-          return false
-        }
-
+        if (errors) return token()
         return decoded
       }
     )
