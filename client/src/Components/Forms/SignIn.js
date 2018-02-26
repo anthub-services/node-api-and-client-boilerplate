@@ -87,7 +87,7 @@ export default class SignIn extends Component {
   }
 
   render() {
-    if (this.props.isSignedIn) {
+    if (this.props.IsSignedIn) {
       const referrer = this.state.locationState
         ? this.state.locationState.from.pathname
         : this.state.redirect.url

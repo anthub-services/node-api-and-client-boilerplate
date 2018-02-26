@@ -1,16 +1,30 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { selectAuthor, toggleAuthor } from '../../Actions/GospelAuthors'
+import { selectAuthor } from '../../Actions/GospelAuthors'
 import GospelAuthorsDetails from './AuthorDetails'
+
+const GOSPEL_AUTHORS = [
+  {
+    author: 'Matthew',
+    occupation: 'Doctor'
+  },{
+    author: 'Mark',
+    occupation: 'Fisherman'
+  },{
+    author: 'Luke',
+    occupation: 'Tax Collector'
+  },{
+    author: 'John',
+    occupation: 'Fisherman'
+  }
+]
 
 class AuthorList extends Component {
   constructor() {
     super()
 
-    this.state = {
-      showGospelAuthors: false
-    }
+    this.state = { showGospelAuthors: false }
   }
 
   toggleGospelAuthors() {
@@ -50,16 +64,15 @@ const ToggleButton = ({ onClick, showGospelAuthors }) => {
 }
 
 const AuthorListItems = ({...props}) => {
-  return props.gospelAuthors.map((author, index) => {
+  return GOSPEL_AUTHORS.map((author, index) => {
     return (
       <li
         key={index}
         onClick={() => {
-            props.toggleAuthor(index)
-            props.selectAuthor(author)
+            props.selectAuthor(author, index, props)
           }
         }
-        className={handleClassSelectedItem(props.selectedGospelAuthor, index)}
+        className={handleClassSelectedItem(props.GospelAuthors.selectedAuthor, index)}
       >{author.author}</li>
     )
   })
@@ -69,12 +82,12 @@ function handleClassSelectedItem(selectedAuthor, index) {
   return `list-group-item${selectedAuthor === index ? ' selected' : ''}`
 }
 
-function mapStateToProps({ gospelAuthors, selectedGospelAuthor }) {
-  return { gospelAuthors, selectedGospelAuthor }
+function mapStateToProps({ GospelAuthors }) {
+  return { GospelAuthors }
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ selectAuthor, toggleAuthor }, dispatch)
+  return bindActionCreators({ selectAuthor }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(AuthorList)

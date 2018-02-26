@@ -18,7 +18,7 @@ export default class SignOut extends Component {
   render() {
     const props = this.props
 
-    if (props.isSignedIn) {
+    if (props.IsSignedIn) {
       return (
         <li>
           <button className="sign-out-btn" onClick={this.signOut.bind(this)}>Sign Out</button>

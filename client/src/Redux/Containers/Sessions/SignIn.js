@@ -3,8 +3,8 @@ import { connect } from 'react-redux'
 import { auth } from '../../Actions/Sessions'
 import SignInForm from '../../../Components/Forms/SignIn'
 
-function mapStateToProps({ isSignedIn }) {
-  return { isSignedIn }
+function mapStateToProps({ IsSignedIn }) {
+  return { IsSignedIn }
 }
 
 function mapDispatchToProps(dispatch) {

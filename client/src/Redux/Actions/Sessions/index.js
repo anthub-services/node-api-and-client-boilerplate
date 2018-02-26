@@ -1,5 +1,5 @@
-import { AUTH } from  '../../Actions/Sessions/Types'
+import { AUTH } from  './Types'
 
-export function auth(isSignedIn) {
-  return { type: AUTH, isSignedIn }
+export function auth(IsSignedIn) {
+  return { type: AUTH, IsSignedIn }
 }

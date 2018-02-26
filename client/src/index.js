@@ -10,7 +10,8 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import './Assets/Styles/Style.css'
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
-const store = createStore(combineReducers(reducers), composeEnhancers(applyMiddleware(thunk)))
+const middleware = typeof(composeEnhancers) === 'function' ? composeEnhancers(applyMiddleware(thunk)) : applyMiddleware(thunk)
+const store = createStore(combineReducers(reducers), middleware)
 
 ReactDOM.render(
   <Provider store={store}>
