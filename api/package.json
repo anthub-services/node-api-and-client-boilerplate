@@ -11,7 +11,7 @@
   "bugs": {
     "url": "https://github.com/rickyhurtado/node-api-and-client-boilerplate/issues"
   },
-  "homepage": "https://github.com/rickyhurtado/node-api-and-client-boilerplate/tree/master/client",
+  "homepage": "https://github.com/rickyhurtado/node-api-and-client-boilerplate/tree/master",
   "dependencies": {
     "bcrypt": "^1.0.3",
     "body-parser": "~1.0.1",
