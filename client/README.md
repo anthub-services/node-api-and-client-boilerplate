@@ -71,9 +71,13 @@ Note: To view the Docker containers, open another terminal then enter `docker ps
 
 Note: To run the commands above for separate client Docker instance, simply change the project directory from `root` to `client`. Same applies for local.
 
+## Other API App Boilerplate
+
+- [Node API Mockup Data Boilerplate](https://github.com/rickyhurtado/node-api-mockup-data-boilerplate) – non-database API server powered by [Express](https://expressjs.com/)
+
 ## Users
 
-With the [API](https://github.com/rickyhurtado/node-client-and-api-boilerplate/tree/master/api) app, use the following credentials to test different API responses. Default password for all accounts is `password`.
+With the [API](https://github.com/rickyhurtado/node-client-and-api-boilerplate/tree/master/api) or the [Node API Mockup Data Boilerplate](https://github.com/rickyhurtado/node-api-mockup-data-boilerplate/tree/master) app, use the following credentials to test different API responses. Default password for all accounts is `password`.
 
 - **Admin User:** `admin@email.com` - can access all applications
 - **Admin User witout Settings page:** `admin_no_settings@email.com` - no access on admin Settings page

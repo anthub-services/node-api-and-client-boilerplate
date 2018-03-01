@@ -42,7 +42,7 @@ Note: See **Bash Commands** section for Docker.
 <br>
 **Windows:** [Installing PostgreSQL, Creating a User, and Creating a Database](https://confluence.atlassian.com/display/CONF30/Database+Setup+for+PostgreSQL+on+Windows)
 
-NOTE: For Mac users, you can run the PostgreSQL server on a separate terminal console by running the following command:
+Note: For Mac users, you can run the PostgreSQL server on a separate terminal console by running the following command:
 
 ```
 postgres -D /usr/local/var/postgres
@@ -80,11 +80,6 @@ Note: To view the Docker containers, open another terminal then enter `docker ps
 | `./bin/start`                          | Build and run all the services (API and database)   |
 | `./bin/stop`                           | Stop all the services                               |
 | `./bin/console <container ID or Name>` | Access the terminal console of API container        |
-
-Note:
-
-- To view the Docker containers, open another terminal then enter `docker ps`
-- To manage separate Docker instance for API, open another terminal console and change the project directory from `root` to `api` and run the commands above
 
 ### Database
 

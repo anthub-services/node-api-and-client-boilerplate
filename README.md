@@ -84,7 +84,7 @@ The `yarn run watch-css` command should be running on a separate terminal consol
 <br>
 **Windows:** [Installing PostgreSQL, Creating a User, and Creating a Database](https://confluence.atlassian.com/display/CONF30/Database+Setup+for+PostgreSQL+on+Windows)
 
-NOTE: For Mac users, you can run the PostgreSQL server on a separate terminal console by running the following command:
+Note: For Mac users, you can run the PostgreSQL server on a separate terminal console by running the following command:
 
 ```
 postgres -D /usr/local/var/postgres
@@ -92,7 +92,7 @@ postgres -D /usr/local/var/postgres
 
 **Create and Initialize Database**
 
-Open a terminal console and change the project directory from `root` to `api` and run the following command:
+Open a terminal console and change the project directory from `root` to `api` and run the following commands:
 
 ```
 sequelize db:create
@@ -156,9 +156,13 @@ Note: To run the commands above for separate API Docker instance, simply change 
 
 Note: To run the commands above for separate client Docker instance, simply change the project directory from `root` to `client`. Same applies for local.
 
+## Other API App Boilerplate
+
+- [Node API Mockup Data Boilerplate](https://github.com/rickyhurtado/node-api-mockup-data-boilerplate) – non-database API server powered by [Express](https://expressjs.com/)
+
 ## Users
 
-With the [API](https://github.com/rickyhurtado/node-client-and-api-boilerplate/tree/master/api) app, use the following credentials to test different API responses. Default password for all accounts is `password`.
+With the [API](https://github.com/rickyhurtado/node-client-and-api-boilerplate/tree/master/api) or the [Node API Mockup Data Boilerplate](https://github.com/rickyhurtado/node-api-mockup-data-boilerplate/tree/master) app, use the following credentials to test different API responses. Default password for all accounts is `password`.
 
 - **Admin User:** `admin@email.com` - can access all applications
 - **Admin User witout Settings page:** `admin_no_settings@email.com` - no access on admin Settings page
