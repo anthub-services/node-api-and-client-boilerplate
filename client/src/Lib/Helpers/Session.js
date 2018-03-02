@@ -64,14 +64,20 @@ export function isAuthorised(path) {
 
 /* TOKEN */
 
+let verifyTokenTO = 0;
+
 export function verifyToken() {
-  Axios
-    .get(process.env.REACT_APP_API_VERIFY_TOKEN_URL)
-    .catch(error => {
-      console.log('Error: ', error)
-      Store.remove('token')
-      window.location.reload()
-    })
+  clearTimeout(verifyTokenTO)
+
+  verifyTokenTO = setTimeout(function() {
+    Axios
+      .get(process.env.REACT_APP_API_VERIFY_TOKEN_URL)
+      .catch(error => {
+        console.log('Error: ', error)
+        Store.remove('token')
+        window.location.reload()
+      })
+  }, 500);
 }
 
 export function token() {
