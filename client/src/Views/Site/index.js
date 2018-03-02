@@ -1,11 +1,13 @@
 import Home from './Home'
-import SignIn from './SignIn'
+import MyProfile from './MyProfile'
 import PageNotFound from './PageNotFound'
 import Redux from './Redux'
+import SignIn from './SignIn'
 
 export default {
   Home,
-  SignIn,
+  MyProfile,
   PageNotFound,
-  Redux
+  Redux,
+  SignIn
 }

@@ -6,10 +6,13 @@ module.exports = {
       userPermission(queryInterface, 'admin@email.com', '*'),
       userPermission(queryInterface, 'admin_no_settings@email.com', '*'),
       userPermission(queryInterface, 'admin_no_settings@email.com', '/admin/settings', false),
+      userPermission(queryInterface, 'user@email.com', '/my-profile'),
       userPermission(queryInterface, 'user@email.com', '/admin'),
       userPermission(queryInterface, 'user@email.com', '/admin/dashboard'),
+      userPermission(queryInterface, 'referrer@email.com', '/my-profile'),
       userPermission(queryInterface, 'referrer@email.com', '/admin'),
       userPermission(queryInterface, 'referrer@email.com', '/admin/dashboard'),
+      userPermission(queryInterface, 'redirect@email.com', '/my-profile'),
       userPermission(queryInterface, 'redirect@email.com', '/admin'),
       userPermission(queryInterface, 'redirect@email.com', '/admin/dashboard')
     ])

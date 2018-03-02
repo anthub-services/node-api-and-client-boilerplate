@@ -4,6 +4,7 @@ module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert('Permissions', [
       permission('Full Access', '*'),
+      permission('My Profile', '/my-profile'),
       permission('Admin', '/admin'),
       permission('Admin > Dashboard', '/admin/dashboard'),
       permission('Admin > Settings', '/admin/settings')

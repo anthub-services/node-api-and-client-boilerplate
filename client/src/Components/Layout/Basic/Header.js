@@ -20,6 +20,7 @@ class Header extends Component {
               <NavLink title="Redux" to="/redux" path={path} />
               <NavLink title="Sign In" to="/sign-in" path={path} isSignedOut />
               <AuthNavLink title="Admin" to="/admin/dashboard" />
+              <AuthNavLink title="My Profile" to="/my-profile" path={path} />
               <SignOutButton referrer={path} />
             </ul>
           </Navbar.Collapse>

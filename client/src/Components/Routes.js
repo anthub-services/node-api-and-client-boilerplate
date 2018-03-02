@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { BrowserRouter, Switch, Redirect } from 'react-router-dom'
 import Site from '../Views/Site'
 import Admin from '../Views/Admin'
-import { SiteRoute, AdminRoute } from '../Lib/Common/Routes'
+import { SiteRoute, AuthSiteRoute, AdminRoute } from '../Lib/Common/Routes'
 
 export default class Routes extends Component {
   render() {
@@ -12,6 +12,7 @@ export default class Routes extends Component {
           <SiteRoute exact path="/" component={Site.Home} />
           <SiteRoute exact path="/redux" component={Site.Redux} />
           <SiteRoute exact path="/sign-in" component={Site.SignIn} />
+          <AuthSiteRoute exact path="/my-profile" component={Site.MyProfile} />
 
           <AdminRoute exact path="/admin" component={() => <Redirect to="/admin/dashboard" />} />
           <AdminRoute exact path="/admin/dashboard" component={Admin.Dashboard} />

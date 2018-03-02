@@ -14,6 +14,20 @@ export const SiteRoute = ({component: Component, ...rest}) => {
   )
 }
 
+export const AuthSiteRoute = ({component: Component, ...rest}) => {
+  const { path } = {...rest}
+  let component = <Component {...rest} />
+
+  if (Session.isSignedIn() && Session.accessDenied(path)) {
+    console.log(`[path: ${path}] Access denied!`)
+    component = <PageNotFound {...rest} />
+  }
+
+  const layout = <Layout.Basic>{component}</Layout.Basic>
+
+  return <PrivateRoute {...rest} layout={layout} />
+}
+
 export const AdminRoute = ({component: Component, ...rest}) => {
   const { path } = {...rest}
   let component = <Component {...rest} />
